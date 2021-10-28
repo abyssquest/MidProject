@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC
+	"-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="ImageDAO">
+	<!-- sql 문장 공부 필요 -->
+	<select id="selectList" resultType="image">
+		<![CDATA[
+		
+		]]>
+	</select>
+	
+	<select id="selectList_T" resultType="image">
+		<![CDATA[
+			select *
+			from springboard
+			where title like '%'||#{searchKeyword}||'%'
+			order by seq desc
+		]]>
+	</select>
+	
+	<select id="selectList_W" resultType="image">
+		<![CDATA[
+			select *
+			from springboard
+			where title like '%'||#{searchKeyword}||'%'
+			order by seq desc
+		]]>
+	</select>
+
+	<select id="selectOne" resultType="image">
+		<![CDATA[
+			select *
+			from springboard
+			where seq=#{seq}
+		]]>
+	</select>
+	
+	<insert id="insert">
+		<![CDATA[
+			insert into springboard
+			(seq, title, writer, content)
+			values
+			((select nvl(max(seq), 0)+1 from springboard),#{title},#{writer},#{content})
+		]]>
+	</insert>
+
+	<update id="update">
+		<![CDATA[
+			update springboard
+			set title=#{title}, writer=#{writer}
+			where seq=#{seq}
+		]]>
+	</update>
+
+	<delete id="delete">
+		<![CDATA[
+			delete from springboard
+			where seq=#{seq}
+		]]>
+	</delete>
+
+</mapper>

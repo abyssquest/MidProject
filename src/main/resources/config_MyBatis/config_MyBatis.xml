@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+	<typeAliases>
+		<typeAlias type="com.spring.biz.image.vo.ImageVO" alias="image"/>
+		<!-- <typeAlias type="com.spring.biz.user.vo.UserVO" alias="user"/> -->
+		<!-- <typeAlias type="com.spring.biz.board.vo.BoardVO" alias="board"/> -->
+	</typeAliases>
+	<mappers>
+		<mapper resource="config_MyBatis/mapping_image.xml"/>
+		<mapper resource="config_MyBatis/mapping_user.xml"/>
+		<mapper resource="config_MyBatis/mapping_board.xml"/>
+	</mappers>
+</configuration>
