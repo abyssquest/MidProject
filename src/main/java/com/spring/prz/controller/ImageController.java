@@ -24,6 +24,6 @@ public class ImageController {
 		service.update(vo);
 		service.delete(vo);
 		
-		return null;
+		return "testImage";
 	}
 }

@@ -1,13 +1,57 @@
 package com.spring.biz.user.vo;
 
-public class UserVO {
-	private int seq;
+import java.util.Date;
 
-	public int getSeq() {
-		return seq;
+public class UserVO {
+	private String userid;
+	private String passwd;
+	private String name;
+	private String email;
+	private Date join_date;
+
+	public String getUserid() {
+		return userid;
 	}
 
-	public void setSeq(int seq) {
-		this.seq = seq;
+	public void setUserid(String userid) {
+		this.userid = userid;
+	}
+
+	@Override
+	public String toString() {
+		return "UserDTO [userid=" + userid + ", passwd=" + passwd + ", name=" + name + ", email=" + email
+				+ ", join_date=" + join_date + "]";
+	}
+
+	public String getPasswd() {
+		return passwd;
+	}
+
+	public void setPasswd(String passwd) {
+		this.passwd = passwd;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public Date getJoin_date() {
+		return join_date;
+	}
+
+	public void setJoin_date(Date join_date) {
+		this.join_date = join_date;
 	}
 }

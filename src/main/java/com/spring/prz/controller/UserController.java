@@ -15,7 +15,7 @@ public class UserController {
 	@RequestMapping("testUser.me")
 	public String testUser() {
 		UserVO vo = new UserVO();
-		vo.setSeq(10);
+		vo.setUserid("hong");
 		
 		System.out.println("UserService 작동 테스트");
 		service.insert(vo);
@@ -24,6 +24,6 @@ public class UserController {
 		service.update(vo);
 		service.delete(vo);
 		
-		return null;
+		return "testUser";
 	}
 }
