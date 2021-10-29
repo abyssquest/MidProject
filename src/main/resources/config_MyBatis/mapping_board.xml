@@ -21,12 +21,12 @@
 		
 		]]>
 	</delete>
-	<select id="selectList" resultType="board">
+	<select id="selectList">
 		<![CDATA[
 		
 		]]>
 	</select>
-	<select id="selectOne" resultType="board">
+	<select id="selectOne">
 		<![CDATA[
 		
 		]]>
