@@ -49,7 +49,7 @@
 		
 		]]>
 	</select>
-	<select id="selectOne" resultType="board">
+	<select id="selectOne" resultType="image">
 		<![CDATA[
 			select *
 			from springboard
