@@ -11,7 +11,8 @@
 	<a href="testImage.do">testImage</a><br><br>
 	<a href="testUser.me">testUser</a><br><br>
 	<a href="testPet.me">testPet</a><br><br>
-	
+	<p></p>
+	<a href="insertImage.do">insertImage</a><br><br>
 	
 </body>
 </html>

@@ -24,6 +24,6 @@ public class UserController {
 		service.update(vo);
 		service.delete(vo);
 		
-		return "testUser";
+		return "testFolder/testUser";
 	}
 }

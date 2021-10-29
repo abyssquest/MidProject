@@ -24,6 +24,6 @@ public class PetController {
 		service.update(vo);
 		service.delete(vo);
 		
-		return "testPet";
+		return "testFolder/testPet";
 	}
 }

@@ -3,6 +3,7 @@ package com.spring.prz.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.spring.biz.image.service.ImageService;
 import com.spring.biz.image.vo.ImageVO;
@@ -24,6 +25,21 @@ public class ImageController {
 		service.update(vo);
 		service.delete(vo);
 		
-		return "testImage";
+		return "testFolder/testImage";
+	}
+	
+	@RequestMapping(value = "insertImage.do", method = RequestMethod.GET)
+	public String insertImageForm() {
+		System.out.println("확인 - insertImageForm 호출");
+		return "image/insertImageForm";
+	}
+	
+	@RequestMapping(value = "insertImage.do", method = RequestMethod.POST)
+	public String insertImageProc(/*ImageVO vo*/) {
+		ImageVO vo = new ImageVO();
+		vo.setSeq(10);
+		service.insert(vo);
+		System.out.println("확인 - insertImageProc 호출");
+		return "image/getImageList";		
 	}
 }
