@@ -4,13 +4,15 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>Insert title here</title>
+	<title>getImage</title>
 </head>
 <body>
 	<p>getImage 페이지</p>
-	<p></p>
-	<p><a href="getImageList.do">이미지 목록</a></p>
-	<p><a href="deleteImage.do">이미지 삭제</a></p>
 	
+	<p></p>
+	
+	<p><a href="getImageList.do">이미지 목록</a></p>
+	
+	<p><a href="deleteImage.do">이미지 삭제</a></p>	
 </body>
 </html>

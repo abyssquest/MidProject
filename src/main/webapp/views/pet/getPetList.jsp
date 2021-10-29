@@ -4,16 +4,16 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>getImageList</title>
+	<title>getPetList</title>
 </head>
 <body>
-	<p>이미지 게시판 내용</p>
+	<p>펫 목록 내용</p>
 	
 	<p>~ 반복문 ~</p>
 	
-	<p><a href="insertImage.do">새 이미지 저장 테스트</a></p>
+	<p><a href="insertPet.do">새 펫 등록</a></p>
 	
-	<p><a href="getImage.do">이미지 하나 불러오기 테스트</a></p>
+	<p><a href="getPet.do">펫 한마리 불러오기 테스트</a></p>
 	
 	<p>
 		스프링 콘솔 창을 보세요

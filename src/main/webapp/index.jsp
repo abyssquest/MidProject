@@ -12,8 +12,11 @@
 	<a href="testUser.me">testUser</a><br><br>
 	<a href="testPet.me">testPet</a><br><br>
 	<p></p>
-	<p><a href="insertImage.do">이미지 저장 테스트</a></p>
 	<p><a href="getImageList.do">이미지 목록 테스트</a></p>
+	
+	<p><a href="getUserList.do">유저 목록 테스트</a></p>
+	
+	<p><a href="getPetList.do">펫 목록 테스트</a></p>
 	
 </body>
 </html>
