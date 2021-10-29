@@ -8,6 +8,5 @@ public interface ImageService {
 	public void insert(ImageVO vo);
 	public List<ImageVO> selectList(ImageVO vo);
 	public ImageVO selectOne(ImageVO vo);
-	public void update(ImageVO vo);
 	public void delete(ImageVO vo);
 }

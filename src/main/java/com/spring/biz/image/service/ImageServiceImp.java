@@ -32,12 +32,6 @@ public class ImageServiceImp implements ImageService {
 	}
 
 	@Override
-	public void update(ImageVO vo) {
-		System.out.println("확인 - service.update");
-		dao.update(vo);
-	}
-
-	@Override
 	public void delete(ImageVO vo) {
 		System.out.println("확인 - service.delete");
 		dao.delete(vo);

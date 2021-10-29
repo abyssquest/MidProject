@@ -22,7 +22,6 @@ public class ImageController {
 		service.insert(vo);
 		service.selectList(vo);
 		service.selectOne(vo);
-		service.update(vo);
 		service.delete(vo);
 		
 		return "testFolder/testImage";
@@ -30,16 +29,51 @@ public class ImageController {
 	
 	@RequestMapping(value = "insertImage.do", method = RequestMethod.GET)
 	public String insertImageForm() {
-		System.out.println("확인 - insertImageForm 호출");
+		System.out.println("컨트롤러 맵핑 insertImageForm 확인");
 		return "image/insertImageForm";
 	}
 	
 	@RequestMapping(value = "insertImage.do", method = RequestMethod.POST)
 	public String insertImageProc(/*ImageVO vo*/) {
-		ImageVO vo = new ImageVO();
-		vo.setSeq(10);
+		System.out.println("컨트롤러 맵핑 insertImageProc 확인");
+		
+		ImageVO vo = new ImageVO(); 
+		vo.setSeq(10); // 테스트용
+		
 		service.insert(vo);
-		System.out.println("확인 - insertImageProc 호출");
-		return "image/getImageList";		
+		return "redirect:getImageList.do";		
+	}
+	
+	@RequestMapping("getImageList.do")
+	public String getImageList() {
+		System.out.println("컨트롤러 맵핑 getImageList 확인");
+		
+		ImageVO vo = new ImageVO();
+		vo.setSeq(10); // 테스트용
+		
+		service.selectList(vo);
+		return "image/getImageList";
+	}
+	
+	@RequestMapping("getImage.do")
+	public String getImage() {
+		System.out.println("컨트롤러 맵핑 getImage 확인");
+		
+		ImageVO vo = new ImageVO();
+		vo.setSeq(10); // 테스트용
+		
+		service.selectOne(vo);
+		return "image/getImage";
+	}
+	
+	@RequestMapping("deleteImage.do")
+	public String deleteImage() {
+		System.out.println("컨트롤러 맵핑 deleteImage 확인");
+		
+		ImageVO vo = new ImageVO();
+		vo.setSeq(10); // 테스트용
+		
+		service.delete(vo);
+		return "redirect:getImageList.do";
 	}
 }

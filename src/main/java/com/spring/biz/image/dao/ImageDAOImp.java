@@ -30,12 +30,6 @@ public class ImageDAOImp implements ImageDAO {
 	}
 
 	@Override
-	public void update(ImageVO vo) {
-		System.out.println("확인 - dao.update");
-		// sql.update("ImageDAO.update", vo);
-	}
-
-	@Override
 	public void delete(ImageVO vo) {
 		System.out.println("확인 - dao.delete");
 		// sql.delete("ImageDAO.delete", vo);
