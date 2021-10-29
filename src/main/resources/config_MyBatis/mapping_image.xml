@@ -4,13 +4,7 @@
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="ImageDAO">
-	<!-- sql 문장 공부 필요 -->
-	<select id="selectList" resultType="image">
-		<![CDATA[
-		
-		]]>
-	</select>
-	
+	<!-- 추가 설정 -->
 	<select id="selectList_T" resultType="image">
 		<![CDATA[
 			select *
@@ -19,7 +13,6 @@
 			order by seq desc
 		]]>
 	</select>
-	
 	<select id="selectList_W" resultType="image">
 		<![CDATA[
 			select *
@@ -28,15 +21,8 @@
 			order by seq desc
 		]]>
 	</select>
-
-	<select id="selectOne" resultType="image">
-		<![CDATA[
-			select *
-			from springboard
-			where seq=#{seq}
-		]]>
-	</select>
 	
+	<!-- 기본 설정 -->
 	<insert id="insert">
 		<![CDATA[
 			insert into springboard
@@ -45,7 +31,6 @@
 			((select nvl(max(seq), 0)+1 from springboard),#{title},#{writer},#{content})
 		]]>
 	</insert>
-
 	<update id="update">
 		<![CDATA[
 			update springboard
@@ -53,12 +38,22 @@
 			where seq=#{seq}
 		]]>
 	</update>
-
 	<delete id="delete">
 		<![CDATA[
 			delete from springboard
 			where seq=#{seq}
 		]]>
 	</delete>
-
+	<select id="selectList" resultType="image">
+		<![CDATA[
+		
+		]]>
+	</select>
+	<select id="selectOne" resultType="board">
+		<![CDATA[
+			select *
+			from springboard
+			where seq=#{seq}
+		]]>
+	</select>
 </mapper>

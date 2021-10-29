@@ -4,29 +4,31 @@
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="BoardDAO">
-
+	<!-- 추가 설정 -->
+	<!-- 기본 설정 -->
 	<insert id="insert">
 		<![CDATA[
 		
 		]]>
 	</insert>
-
-	<select id="select">
-		<![CDATA[
-		
-		]]>
-	</select>
-
 	<update id="update">
 		<![CDATA[
 		
 		]]>
 	</update>
-
 	<delete id="delete">
 		<![CDATA[
 		
 		]]>
 	</delete>
-
+	<select id="selectList" resultType="board">
+		<![CDATA[
+		
+		]]>
+	</select>
+	<select id="selectOne" resultType="board">
+		<![CDATA[
+		
+		]]>
+	</select>
 </mapper>
