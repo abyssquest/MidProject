@@ -41,9 +41,9 @@
 		
 	<servlet-mapping>
 		<servlet-name>appServlet</servlet-name>
-		<url-pattern>*.do</url-pattern>
-		<url-pattern>*.go</url-pattern>
-		<url-pattern>*.me</url-pattern>
+		<url-pattern>*.go</url-pattern><!-- 비즈니스 로직 작업 안하는 요청 -->
+		<url-pattern>*.do</url-pattern><!-- 비즈니스 로직 작업 해야하는 요청 -->
+		<url-pattern>*.me</url-pattern><!-- 계정 관련 요청 -->
 	</servlet-mapping>
 
 </web-app>
