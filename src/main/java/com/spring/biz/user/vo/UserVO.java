@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class UserVO {
 	private String id;
-	private String passwd;
+	private String password;
 	private String name;
 	private String email;
 	private Date join_date;
@@ -17,12 +17,12 @@ public class UserVO {
 		this.id = id;
 	}
 
-	public String getPasswd() {
-		return passwd;
+	public String getPassword() {
+		return password;
 	}
 
-	public void setPasswd(String passwd) {
-		this.passwd = passwd;
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 	public String getName() {

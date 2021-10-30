@@ -1,5 +1,7 @@
 package com.spring.prz.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,18 +29,17 @@ public class UserController {
 		return "testUser";
 	}
 	
+	// 회원가입 : 계정 추가
 	@RequestMapping(value = "insertUser.do", method = RequestMethod.GET)
 	public String insertUserForm() {
 		System.out.println("컨트롤러 맵핑 insertUserForm 확인");
 		return "user/insertUser";
 	}
 	
+	// 계정 추가 과정
 	@RequestMapping(value = "insertUser.do", method = RequestMethod.POST)
-	public String insertUserProc(/*UserVO vo*/) {
+	public String insertUserProc(UserVO vo) {
 		System.out.println("컨트롤러 맵핑 insertUserProc 확인");
-		
-		UserVO vo = new UserVO(); 
-		vo.setId("test"); // 테스트용
 		
 		service.insert(vo);
 		return "redirect:getUserList.do";		
@@ -66,31 +67,36 @@ public class UserController {
 		return "user/getUser";
 	}
 	
+	// 계정 수정 페이지
 	@RequestMapping(value = "updateUser.do", method = RequestMethod.GET)
 	public String updateUserForm() {
 		System.out.println("컨트롤러 맵핑 updateUserForm 확인");
 		return "user/updateUser";
 	}
 	
+	// 계정 수정 과정
 	@RequestMapping(value = "updateUser.do", method = RequestMethod.POST)
-	public String updateUserProc() {
+	public String updateUserProc(UserVO vo) {
 		System.out.println("컨트롤러 맵핑 updateUserProc 확인");
 		
-		UserVO vo = new UserVO();
-		vo.setId("test3"); // 테스트용
-		
 		service.update(vo);
-		return "redirect:getUserList.do";
+		return "toIndex";
 	}
 	
+	// 회원 탈퇴
 	@RequestMapping("deleteUser.do")
-	public String deleteUser() {
+	public String deleteUser(HttpSession session) {
 		System.out.println("컨트롤러 맵핑 deleteUser 확인");
 		
-		UserVO vo = new UserVO();
-		vo.setId("test3"); // 테스트용
+		if(session.getAttribute("id") != null) {
+			UserVO vo = new UserVO();
+			vo.setId((String)session.getAttribute("id"));
+			service.delete(vo);
+			System.out.println("계정 탈퇴 성공");
+		} else {
+			System.out.println("로그인 하세요");
+		}
 		
-		service.delete(vo);
-		return "redirect:getUserList.do";
+		return "toIndex";
 	}
 }

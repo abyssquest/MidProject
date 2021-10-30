@@ -18,5 +18,8 @@
 	
 	<p><a href="getPetList.do">펫 목록 테스트</a></p>
 	
+	<p><a href="login.do">로그인 창 테스트</a></p>
+	
+	<p><a href="logout.do">로그아웃 테스트 - 인덱스 창으로 돌아옴</a></p>
 </body>
 </html>
