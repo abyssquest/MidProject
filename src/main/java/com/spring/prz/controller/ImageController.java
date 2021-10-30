@@ -24,7 +24,7 @@ public class ImageController {
 		service.selectOne(vo);
 		service.delete(vo);
 		
-		return "testImage";
+		return "testFolder/testImage";
 	}
 	
 	@RequestMapping(value = "insertImage.do", method = RequestMethod.GET)

@@ -8,8 +8,8 @@
 	<!-- 기본 설정 -->
 	<insert id="insert">
 		<![CDATA[
-		insert into member values(#{name},#{id},#{password},
-		#{address},#{email},sysdate);
+		insert into member
+		values(#{name},#{id},#{password},#{address},#{email},sysdate);
 		]]>
 	</insert>
 	<update id="update_C">

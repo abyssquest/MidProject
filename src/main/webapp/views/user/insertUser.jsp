@@ -4,7 +4,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>insertUserForm</title>
+	<title>insertUser</title>
 </head>
 <body>
 	<form action="insertUser.do" method="post">

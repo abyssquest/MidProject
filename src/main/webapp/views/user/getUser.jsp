@@ -16,5 +16,7 @@
 	<p><a href="updateUser.do">유저 수정</a></p>
 	
 	<p><a href="deleteUser.do">유저 탈퇴</a></p>
+	
+	<p><a href="index.do">인덱스 창</a></p>
 </body>
 </html>

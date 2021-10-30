@@ -1,13 +1,10 @@
 package com.spring.biz.user.vo;
 
-import java.util.Date;
-
 public class UserVO {
 	private String id;
 	private String password;
 	private String name;
 	private String email;
-	private Date join_date;
 
 	public String getId() {
 		return id;
@@ -39,13 +36,5 @@ public class UserVO {
 
 	public void setEmail(String email) {
 		this.email = email;
-	}
-
-	public Date getJoin_date() {
-		return join_date;
-	}
-
-	public void setJoin_date(Date join_date) {
-		this.join_date = join_date;
 	}
 }

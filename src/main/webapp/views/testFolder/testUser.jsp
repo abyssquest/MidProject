@@ -8,7 +8,7 @@
 </head>
 <body>
 	<p>스프링 콘솔 창을 보세요</p>
-	<a href="/biz/index.jsp">인덱스 창</a>
+	<a href="index.do">인덱스 창</a>
 	
 </body>
 </html>

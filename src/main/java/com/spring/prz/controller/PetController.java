@@ -16,7 +16,7 @@ public class PetController {
 	@RequestMapping("testPet.me")
 	public String testPet() {
 		PetVO vo = new PetVO();
-		vo.setSeq(10);
+		vo.setName("Navi");
 		
 		System.out.println("PetService 작동 테스트");
 		service.insert(vo);
@@ -25,7 +25,7 @@ public class PetController {
 		service.update(vo);
 		service.delete(vo);
 		
-		return "testPet";
+		return "testFolder/testPet";
 	}
 	
 	@RequestMapping(value = "insertPet.do", method = RequestMethod.GET)
@@ -39,7 +39,7 @@ public class PetController {
 		System.out.println("컨트롤러 맵핑 insertPetProc 확인");
 		
 		PetVO vo = new PetVO(); 
-		vo.setSeq(10); // 테스트용
+		vo.setName("Navi"); // 테스트용
 		
 		service.insert(vo);
 		return "redirect:getPetList.do";		
@@ -50,7 +50,7 @@ public class PetController {
 		System.out.println("컨트롤러 맵핑 getPetList 확인");
 		
 		PetVO vo = new PetVO();
-		vo.setSeq(10); // 테스트용
+		vo.setName("Navi"); // 테스트용
 		
 		service.selectList(vo);
 		return "pet/getPetList";
@@ -61,7 +61,7 @@ public class PetController {
 		System.out.println("컨트롤러 맵핑 getPet 확인");
 		
 		PetVO vo = new PetVO();
-		vo.setSeq(10); // 테스트용
+		vo.setName("Navi"); // 테스트용
 		
 		service.selectOne(vo);
 		return "pet/getPet";
@@ -78,7 +78,7 @@ public class PetController {
 		System.out.println("컨트롤러 맵핑 updatePetProc 확인");
 		
 		PetVO vo = new PetVO();
-		vo.setSeq(35);; // 테스트용
+		vo.setName("Navi"); // 테스트용
 		
 		service.update(vo);
 		return "redirect:getPetList.do";
@@ -89,7 +89,7 @@ public class PetController {
 		System.out.println("컨트롤러 맵핑 deletePet 확인");
 		
 		PetVO vo = new PetVO();
-		vo.setSeq(10); // 테스트용
+		vo.setName("Navi"); // 테스트용
 		
 		service.delete(vo);
 		return "redirect:getPetList.do";

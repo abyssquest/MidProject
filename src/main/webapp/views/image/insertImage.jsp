@@ -4,7 +4,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>insertImageForm</title>
+	<title>insertImage</title>
 </head>
 <body>
 	<form action="insertImage.do" method="post" enctype="multipart/form-data">
