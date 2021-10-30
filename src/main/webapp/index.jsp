@@ -23,5 +23,6 @@
 	<p><a href="logout.do">로그아웃 테스트 - 인덱스 창으로 돌아옴</a></p>
 	
 	<p><a href="views/map/map-hotel.html">지도 - 멍냥펜션</a></p>
+	<p><a href="views/map/maptemp.jsp">지도 - 마커 여러개 표시</a></p>
 </body>
 </html>

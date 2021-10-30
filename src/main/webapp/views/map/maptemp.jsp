@@ -7,16 +7,15 @@
 	<meta charset="UTF-8">
 	<title>맵 테스트</title>
 	<style type="text/css">
-		html, body {
-			width: 99%; height: 99%;
-		}
 		#map {
-			width: 99%; height: 99%;
+			width: 600px; height: 400px;
 			margin: 0 auto;
 		}
 	</style>
 </head>
 <body>
+	<p><a href="javascript:history.go(-1)">뒤로 가기</a></p>
+	<p>임시 데이터로 표시한 지도</p>
 	<div id="map"></div>
 	<!-- 필요한거 : 모델에 들어갈 속성
 	
