@@ -3,24 +3,18 @@ package com.spring.biz.user.vo;
 import java.util.Date;
 
 public class UserVO {
-	private String userid;
+	private String id;
 	private String passwd;
 	private String name;
 	private String email;
 	private Date join_date;
 
-	public String getUserid() {
-		return userid;
+	public String getId() {
+		return id;
 	}
 
-	public void setUserid(String userid) {
-		this.userid = userid;
-	}
-
-	@Override
-	public String toString() {
-		return "UserDTO [userid=" + userid + ", passwd=" + passwd + ", name=" + name + ", email=" + email
-				+ ", join_date=" + join_date + "]";
+	public void setId(String id) {
+		this.id = id;
 	}
 
 	public String getPasswd() {

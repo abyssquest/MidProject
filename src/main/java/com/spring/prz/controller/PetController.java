@@ -25,13 +25,13 @@ public class PetController {
 		service.update(vo);
 		service.delete(vo);
 		
-		return "testFolder/testPet";
+		return "testPet";
 	}
 	
 	@RequestMapping(value = "insertPet.do", method = RequestMethod.GET)
 	public String insertPetForm() {
 		System.out.println("컨트롤러 맵핑 insertPetForm 확인");
-		return "pet/insertPetForm";
+		return "pet/insertPet";
 	}
 	
 	@RequestMapping(value = "insertPet.do", method = RequestMethod.POST)
@@ -70,7 +70,7 @@ public class PetController {
 	@RequestMapping(value = "updatePet.do", method = RequestMethod.GET)
 	public String updatePetForm() {
 		System.out.println("컨트롤러 맵핑 updatePetForm 확인");
-		return "pet/updatePetForm";
+		return "pet/updatePet";
 	}
 	
 	@RequestMapping(value = "updatePet.do", method = RequestMethod.POST)

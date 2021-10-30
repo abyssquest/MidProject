@@ -10,13 +10,12 @@ import com.spring.biz.user.vo.UserVO;
 
 @Controller
 public class UserController {
-	@Autowired
-	UserService service;
+	@Autowired UserService service;
 	
 	@RequestMapping("testUser.me")
 	public String testUser() {
 		UserVO vo = new UserVO();
-		vo.setUserid("hong");
+		vo.setId("hong"); // 테스트용
 		
 		System.out.println("UserService 작동 테스트");
 		service.insert(vo);
@@ -25,13 +24,13 @@ public class UserController {
 		service.update(vo);
 		service.delete(vo);
 		
-		return "testFolder/testUser";
+		return "testUser";
 	}
 	
 	@RequestMapping(value = "insertUser.do", method = RequestMethod.GET)
 	public String insertUserForm() {
 		System.out.println("컨트롤러 맵핑 insertUserForm 확인");
-		return "user/insertUserForm";
+		return "user/insertUser";
 	}
 	
 	@RequestMapping(value = "insertUser.do", method = RequestMethod.POST)
@@ -39,7 +38,7 @@ public class UserController {
 		System.out.println("컨트롤러 맵핑 insertUserProc 확인");
 		
 		UserVO vo = new UserVO(); 
-		vo.setUserid("test"); // 테스트용
+		vo.setId("test"); // 테스트용
 		
 		service.insert(vo);
 		return "redirect:getUserList.do";		
@@ -50,7 +49,7 @@ public class UserController {
 		System.out.println("컨트롤러 맵핑 getUserList 확인");
 		
 		UserVO vo = new UserVO();
-		vo.setUserid("test"); // 테스트용
+		vo.setId("test"); // 테스트용
 		
 		service.selectList(vo);
 		return "user/getUserList";
@@ -61,7 +60,7 @@ public class UserController {
 		System.out.println("컨트롤러 맵핑 getUser 확인");
 		
 		UserVO vo = new UserVO();
-		vo.setUserid("test2"); // 테스트용
+		vo.setId("test2"); // 테스트용
 		
 		service.selectOne(vo);
 		return "user/getUser";
@@ -70,7 +69,7 @@ public class UserController {
 	@RequestMapping(value = "updateUser.do", method = RequestMethod.GET)
 	public String updateUserForm() {
 		System.out.println("컨트롤러 맵핑 updateUserForm 확인");
-		return "user/updateUserForm";
+		return "user/updateUser";
 	}
 	
 	@RequestMapping(value = "updateUser.do", method = RequestMethod.POST)
@@ -78,7 +77,7 @@ public class UserController {
 		System.out.println("컨트롤러 맵핑 updateUserProc 확인");
 		
 		UserVO vo = new UserVO();
-		vo.setUserid("test3"); // 테스트용
+		vo.setId("test3"); // 테스트용
 		
 		service.update(vo);
 		return "redirect:getUserList.do";
@@ -89,7 +88,7 @@ public class UserController {
 		System.out.println("컨트롤러 맵핑 deleteUser 확인");
 		
 		UserVO vo = new UserVO();
-		vo.setUserid("test3"); // 테스트용
+		vo.setId("test3"); // 테스트용
 		
 		service.delete(vo);
 		return "redirect:getUserList.do";

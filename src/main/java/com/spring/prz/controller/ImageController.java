@@ -24,13 +24,13 @@ public class ImageController {
 		service.selectOne(vo);
 		service.delete(vo);
 		
-		return "testFolder/testImage";
+		return "testImage";
 	}
 	
 	@RequestMapping(value = "insertImage.do", method = RequestMethod.GET)
 	public String insertImageForm() {
 		System.out.println("컨트롤러 맵핑 insertImageForm 확인");
-		return "image/insertImageForm";
+		return "image/insertImage";
 	}
 	
 	@RequestMapping(value = "insertImage.do", method = RequestMethod.POST)
