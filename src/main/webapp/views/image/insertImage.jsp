@@ -9,7 +9,7 @@
 <body>
 	<form action="insertImage.do" method="post" enctype="multipart/form-data">
 		<span>파일첨부</span><input type="file" name="uploadFile"><br>
-		<input type="submit" value=" 등록 ">
+		<input type="submit" value="등록">
 	</form>
 	
 	
