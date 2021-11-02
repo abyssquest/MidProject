@@ -9,14 +9,11 @@
 <body>
 	<jsp:include page="/module/log.jsp"/>
 
-	<form action="insertImage.do" method="post">
+	<form action="insertImage.do" method="post" enctype="multipart/form-data">
 		<input type="hidden" name="masterId" value="<%= (String)session.getAttribute("id") %>">
 		<label>타이틀<input type="text" name="title"></label><br>
 		<label>컨텐츠<input type="text" name="content"></label><br>
-		
-		<!-- <span>파일첨부</span><input type="file" name="uploadFile"><br> -->
-		<!-- 아직 미구현 -->
-		
+		<label>파일첨부<input type="file" name="uploadFile"></label>
 		
 		<input type="submit" value="등록">
 	</form>

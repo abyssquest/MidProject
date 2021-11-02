@@ -10,9 +10,10 @@
 	<insert id="insert">
 		<![CDATA[
 		insert into imageboard
-		(seq, title, content, masterId, uploadDate)
+		(seq, title, content, masterId, uploadDate, uploadFileName)
 		values
-		((select nvl(max(seq), 0)+1 from imageboard), #{title}, #{content}, #{masterId}, sysdate)
+		((select nvl(max(seq), 0)+1 from imageboard), #{title}, #{content}, #{masterId}, sysdate,
+		#{uploadFileName, jdbcType=VARCHAR})
 		]]>
 	</insert>
 	<select id="selectList" resultType="image">

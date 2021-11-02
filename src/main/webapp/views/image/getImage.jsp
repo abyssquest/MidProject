@@ -11,11 +11,12 @@
 	
 	<p>getImage 페이지</p>
 	
-	<p>${ image.seq }</p>
-	<p>${ image.title }</p>
-	<p>${ image.content }</p>
-	<p>${ image.masterId }</p>
-	<p>${ image.uploadDate }</p>
+	<p>이미지 번호 : ${ image.seq }</p>
+	<p>이미지 타이틀 : ${ image.title }</p>
+	<p>이미지 컨텐츠 : ${ image.content }</p>
+	<p>이미지 주인 id : ${ image.masterId }</p>
+	<p>이미지 업로드날짜 : ${ image.uploadDate }</p>
+	<img src="/biz/save_File/${ image.uploadFileName }">
 	
 	<p><a href="getImageList.do">이미지 목록</a></p>
 	
