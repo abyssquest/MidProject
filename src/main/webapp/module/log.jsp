@@ -3,11 +3,16 @@
 <!DOCTYPE html>
 <html>
 <body>
-	로그인 계정관리
-	
-	1. 로그아웃 상태면 로그인 링크
-	2. 로그인 상태면 계정설정, 로그아웃 링크
-	
-	
+<%
+	String id=(String)session.getAttribute("id");
+
+	if(id !=null){
+		out.print(id+" 님 환영합니다");
+		out.print("<a href=\"getUser.do\">계정정보</a><br><a href=\"logout.do\">로그아웃</a>");
+	}else{
+		out.print("로그인 후 이용 가능합니다.");
+		out.print("<a href=\"login.do\">로그인</a>");
+	}
+%>
 </body>
 </html>
