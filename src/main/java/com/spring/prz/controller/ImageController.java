@@ -1,7 +1,10 @@
 package com.spring.prz.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -34,44 +37,36 @@ public class ImageController {
 	}
 	
 	@RequestMapping(value = "insertImage.do", method = RequestMethod.POST)
-	public String insertImageProc(/*ImageVO vo*/) {
+	public String insertImageProc(ImageVO vo) {
 		System.out.println("컨트롤러 맵핑 insertImageProc 확인");
-		
-		ImageVO vo = new ImageVO(); 
-		vo.setSeq(10); // 테스트용
 		
 		service.insert(vo);
 		return "redirect:getImageList.do";		
 	}
 	
 	@RequestMapping("getImageList.do")
-	public String getImageList() {
+	public String getImageList(Model model, ImageVO vo) {
 		System.out.println("컨트롤러 맵핑 getImageList 확인");
 		
-		ImageVO vo = new ImageVO();
-		vo.setSeq(10); // 테스트용
+		List<ImageVO> list = service.selectList(vo);
+		model.addAttribute("imageList",list);
 		
-		service.selectList(vo);
 		return "image/getImageList";
 	}
 	
 	@RequestMapping("getImage.do")
-	public String getImage() {
+	public String getImage(Model model, ImageVO vo) {
 		System.out.println("컨트롤러 맵핑 getImage 확인");
 		
-		ImageVO vo = new ImageVO();
-		vo.setSeq(10); // 테스트용
+		ImageVO image = service.selectOne(vo);
+		model.addAttribute("image", image);
 		
-		service.selectOne(vo);
 		return "image/getImage";
 	}
 	
 	@RequestMapping("deleteImage.do")
-	public String deleteImage() {
+	public String deleteImage(ImageVO vo) {
 		System.out.println("컨트롤러 맵핑 deleteImage 확인");
-		
-		ImageVO vo = new ImageVO();
-		vo.setSeq(10); // 테스트용
 		
 		service.delete(vo);
 		return "redirect:getImageList.do";
