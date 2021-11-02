@@ -7,6 +7,8 @@
 	<title>insertUser</title>
 </head>
 <body>
+	<jsp:include page="/module/log.jsp"/>
+	
 	<form action="insertUser.do" method="post">
 		<label>아이디</label><input type="text" name="id"><br>
 		<label>패스워드</label><input type="password" name="password"><br>

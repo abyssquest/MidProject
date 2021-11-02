@@ -7,6 +7,8 @@
 	<title>insertPetForm</title>
 </head>
 <body>
+	<jsp:include page="/module/log.jsp"/>
+	
 	<form action="insertPet.do" method="post" enctype="multipart/form-data">
 		<label>이름</label><input type="text"><br>
 		<input type="submit" value=" 등록 ">

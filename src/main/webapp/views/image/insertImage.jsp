@@ -7,6 +7,8 @@
 	<title>insertImage</title>
 </head>
 <body>
+	<jsp:include page="/module/log.jsp"/>
+	
 	<form action="insertImage.do" method="post" enctype="multipart/form-data">
 		<span>파일첨부</span><input type="file" name="uploadFile"><br>
 		<input type="submit" value="등록">

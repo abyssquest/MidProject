@@ -7,6 +7,8 @@
 	<title>getUserList</title>
 </head>
 <body>
+	<jsp:include page="/module/log.jsp"/>
+	
 	<p>유저 목록 내용</p>
 	
 	<p>~ 반복문 ~</p>

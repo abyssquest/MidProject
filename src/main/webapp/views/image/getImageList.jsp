@@ -7,6 +7,8 @@
 	<title>getImageList</title>
 </head>
 <body>
+	<jsp:include page="/module/log.jsp"/>
+	
 	<p>이미지 게시판 내용</p>
 	
 	<p>~ 반복문 ~</p>

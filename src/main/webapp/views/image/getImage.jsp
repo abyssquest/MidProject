@@ -7,6 +7,8 @@
 	<title>getImage</title>
 </head>
 <body>
+	<jsp:include page="/module/log.jsp"/>
+	
 	<p>getImage 페이지</p>
 	
 	<p></p>

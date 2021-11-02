@@ -14,6 +14,8 @@
 	</style>
 </head>
 <body>
+	<jsp:include page="/module/log.jsp"/>
+	
 	<p><a href="javascript:history.go(-1)">뒤로 가기</a></p>
 	<p>임시 데이터로 표시한 지도</p>
 	<div id="map"></div>
