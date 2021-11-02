@@ -6,29 +6,39 @@
 <mapper namespace="PetDAO">
 	<!-- 추가 설정 -->
 	<!-- 기본 설정 -->
+
+	<!-- 기본 설정 -->
 	<insert id="insert">
 		<![CDATA[
-		
+		insert into pets
+		()
+		values
+		()
 		]]>
 	</insert>
-	<update id="update">
-		<![CDATA[
-		
-		]]>
-	</update>
-	<delete id="delete">
-		<![CDATA[
-		
-		]]>
-	</delete>
 	<select id="selectList" resultType="pet">
 		<![CDATA[
-		
+		select *
+		from pets
+		order by seq desc
 		]]>
 	</select>
 	<select id="selectOne" resultType="pet">
 		<![CDATA[
-		
+		select *
+		from pets
+		where seq=#{seq}
 		]]>
 	</select>
+	<update id="update">
+		<![CDATA[
+		]]>
+	</update>
+	<delete id="delete">
+		<![CDATA[
+		delete
+		from imageboard
+		where seq=#{seq}
+		]]>
+	</delete>
 </mapper>

@@ -39,6 +39,4 @@ public class ImageVO {
 	public void setUploadDate(Date uploadDate) {
 		this.uploadDate = uploadDate;
 	}
-	
-	
 }

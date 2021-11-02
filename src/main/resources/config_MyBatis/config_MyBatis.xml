@@ -5,13 +5,11 @@
 	<typeAliases>
 		<typeAlias type="com.spring.biz.image.vo.ImageVO" alias="image"/>
 		<!-- <typeAlias type="com.spring.biz.user.vo.UserVO" alias="user"/> -->
-		<!-- <typeAlias type="com.spring.biz.pet.vo.PetVO" alias="pet"/> -->
-		<!-- <typeAlias type="com.spring.biz.board.vo.BoardVO" alias="board"/> -->
+		<typeAlias type="com.spring.biz.pet.vo.PetVO" alias="pet"/>
 	</typeAliases>
 	<mappers>
 		<mapper resource="config_MyBatis/mapping_images.xml"/>
 		<!-- <mapper resource="config_MyBatis/mapping_user.xml"/> -->
-		<!-- <mapper resource="config_MyBatis/mapping_pet.xml"/> -->
-		<!-- <mapper resource="config_MyBatis/mapping_board.xml"/> -->
+		<mapper resource="config_MyBatis/mapping_pet.xml"/>
 	</mappers>
 </configuration>

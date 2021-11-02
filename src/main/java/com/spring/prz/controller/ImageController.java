@@ -2,6 +2,8 @@ package com.spring.prz.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -65,10 +67,16 @@ public class ImageController {
 	}
 	
 	@RequestMapping("deleteImage.do")
-	public String deleteImage(ImageVO vo) {
+	public String deleteImage(ImageVO vo, HttpSession session) {
 		System.out.println("컨트롤러 맵핑 deleteImage 확인");
+		ImageVO dbVO = service.selectOne(vo);
 		
-		service.delete(vo);
+		if(dbVO.getMasterId() == (String)session.getAttribute("id")) {
+			service.delete(vo);
+		} else {
+			System.out.println("작성자와 삭제자가 일치하지 않습니다.");
+		}
+		
 		return "redirect:getImageList.do";
 	}
 }

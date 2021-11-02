@@ -24,6 +24,7 @@
 	</style>
 </head>
 <body>
+	<jsp:include page="/module/testsite.jsp"/>
 	<div id="footer">
 		<br>
 		<h3 class = "advise"> 더조은반려견센터 </h3>
