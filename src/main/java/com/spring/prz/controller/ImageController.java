@@ -54,8 +54,10 @@ public class ImageController {
 	}
 	
 	@RequestMapping("getImageList.do")
-	public String getImageList(Model model, ImageVO vo) {
+	public String getImageList(Model model, ImageVO vo, HttpSession session) {
 		System.out.println("컨트롤러 맵핑 getImageList 확인");
+		
+		vo.setMasterId((String)session.getAttribute("id"));
 		
 		List<ImageVO> list = service.selectList(vo);
 		model.addAttribute("imageList",list);

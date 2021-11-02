@@ -20,6 +20,7 @@
 		<![CDATA[
 		select *
 		from imageboard
+		where masterId=#{masterId, jdbcType=VARCHAR}
 		order by seq desc
 		]]>
 	</select>

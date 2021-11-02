@@ -5,6 +5,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>getImage</title>
+	
 </head>
 <body>
 	<jsp:include page="/module/log.jsp"/>
