@@ -29,14 +29,14 @@ public class ImageController {
 	
 	@RequestMapping(value = "insertImage.do", method = RequestMethod.GET)
 	public String insertImageForm() {
-		System.out.println("컨트롤러 맵핑 insertImageForm 확인");
+		//System.out.println("컨트롤러 맵핑 insertImageForm 확인");
 		return "image/insertImage";
 	}
 	
 	@RequestMapping(value = "insertImage.do", method = RequestMethod.POST)
 	public String insertImageProc(ImageVO vo, HttpSession session,
 								MultipartHttpServletRequest request) throws Exception {
-		System.out.println("컨트롤러 맵핑 insertImageProc 확인");
+		//System.out.println("컨트롤러 맵핑 insertImageProc 확인");
 		
 		MultipartFile file = request.getFile("uploadFile");
 		
@@ -59,10 +59,10 @@ public class ImageController {
 	}
 	
 	@RequestMapping("getImageList.do")
-	public String getImageList(Model model, ImageVO vo, HttpSession session) {
-		System.out.println("컨트롤러 맵핑 getImageList 확인");
+	public String getImageList(Model model, ImageVO vo/* , HttpSession session */) {
+		//System.out.println("컨트롤러 맵핑 getImageList 확인");
 		
-		vo.setMasterId((String)session.getAttribute("id"));
+		//vo.setMasterId((String)session.getAttribute("id"));
 		
 		List<ImageVO> list = service.selectList(vo);
 		model.addAttribute("imageList",list);
@@ -72,7 +72,7 @@ public class ImageController {
 	
 	@RequestMapping("getImage.do")
 	public String getImage(Model model, ImageVO vo, HttpSession session) {
-		System.out.println("컨트롤러 맵핑 getImage 확인");
+		//System.out.println("컨트롤러 맵핑 getImage 확인");
 		
 		ImageVO image = service.selectOne(vo);
 		model.addAttribute("image", image);
@@ -82,14 +82,17 @@ public class ImageController {
 	
 	@RequestMapping("deleteImage.do")
 	public String deleteImage(ImageVO vo, HttpSession session) {
-		System.out.println("컨트롤러 맵핑 deleteImage 확인");
+		//System.out.println("컨트롤러 맵핑 deleteImage 확인");
 		ImageVO dbVO = service.selectOne(vo);
 		
 		File file1 = new File(session.getServletContext().getRealPath("/save_File/") + dbVO.getUploadFileName());
 		File file2 = new File(session.getServletContext().getRealPath("/save_thumb/") + dbVO.getUploadFileName());
 		
-		System.out.println(file1.exists() ? file1.delete() ? "파일삭제 성공" : "파일삭제 실패" : "파일이 존재하지 않습니다.");
-		System.out.println(file2.exists() ? file2.delete() ? "파일삭제 성공" : "파일삭제 실패" : "파일이 존재하지 않습니다.");
+		String msg1 = file1.exists() ? file1.delete() ? "파일삭제 성공" : "파일삭제 실패" : "파일이 존재하지 않습니다.";
+		String msg2 = file2.exists() ? file2.delete() ? "파일삭제 성공" : "파일삭제 실패" : "파일이 존재하지 않습니다.";
+		
+		System.out.println(msg1);
+		System.out.println(msg2);
 		
 		service.delete(vo);
 		

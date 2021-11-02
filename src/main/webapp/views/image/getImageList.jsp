@@ -43,9 +43,7 @@
 		</c:forEach>
 	</div>
 	
-	<p><a href="insertImage.do">새 이미지 저장 테스트</a></p>
-	
-
+	<p><a href="insertImage.do">새 이미지 저장</a></p>
 	
 	<jsp:include page="/module/foot.jsp"/>
 </body>

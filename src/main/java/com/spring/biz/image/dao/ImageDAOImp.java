@@ -15,25 +15,25 @@ public class ImageDAOImp implements ImageDAO {
 	
 	@Override
 	public void insert(ImageVO vo) {
-		System.out.println("확인 - dao.insert");
+		//System.out.println("확인 - dao.insert");
 		sql.insert("ImageDAO.insert", vo);
 	}
 	
 	@Override
 	public List<ImageVO> selectList(ImageVO vo) {
-		System.out.println("확인 - dao.selectList");
+		//System.out.println("확인 - dao.selectList");
 		return sql.selectList("ImageDAO.selectList", vo);
 	}
 
 	@Override
 	public ImageVO selectOne(ImageVO vo) {
-		System.out.println("확인 - dao.selectOne");
+		//System.out.println("확인 - dao.selectOne");
 		return sql.selectOne("ImageDAO.selectOne", vo);
 	}
 
 	@Override
 	public void delete(ImageVO vo) {
-		System.out.println("확인 - dao.delete");
+		//System.out.println("확인 - dao.delete");
 		sql.delete("ImageDAO.delete", vo);
 	}
 }
