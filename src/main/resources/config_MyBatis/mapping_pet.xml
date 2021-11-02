@@ -11,15 +11,16 @@
 	<insert id="insert">
 		<![CDATA[
 		insert into pets
-		()
+		(seq, name, masterId, birthDate)
 		values
-		()
+		((select nvl(max(seq), 0)+1 from pets), #{name}, #{masterId}, #{birthDate})
 		]]>
 	</insert>
 	<select id="selectList" resultType="pet">
 		<![CDATA[
 		select *
 		from pets
+		where masterId=#{masterId, jdbcType=VARCHAR}
 		order by seq desc
 		]]>
 	</select>
@@ -32,12 +33,15 @@
 	</select>
 	<update id="update">
 		<![CDATA[
+		update pets
+		set name=#{name}, birthDate=#{birthDate}
+		where seq=#{seq}
 		]]>
 	</update>
 	<delete id="delete">
 		<![CDATA[
 		delete
-		from imageboard
+		from pets
 		where seq=#{seq}
 		]]>
 	</delete>

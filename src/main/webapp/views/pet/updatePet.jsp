@@ -9,11 +9,13 @@
 <body>
 	<jsp:include page="/module/log.jsp"/>
 	
-	<form action="updatePet.do" method="post" enctype="multipart/form-data">
-		<label>이름</label><input type="text"><br>
-		<input type="submit" value=" 수정 ">
+	<form action="updatePet.do" method="post">
+		<input type="hidden" name="seq" value="${ pet.seq }">
+		<label>이름<input type="text" name="name"></label><br>
+		<label>생일<input type="date" name="birthDate"></label><br>
+		<input type="submit" value="수정">
 	</form>
 	
-	
+	<jsp:include page="/module/foot.jsp"/>
 </body>
 </html>

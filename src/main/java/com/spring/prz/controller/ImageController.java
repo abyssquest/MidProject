@@ -18,20 +18,6 @@ public class ImageController {
 	@Autowired
 	ImageService service;
 	
-	@RequestMapping("testImage.do")
-	public String testImage() {
-		ImageVO vo = new ImageVO();
-		vo.setSeq(10);
-		
-		System.out.println("ImageService 작동 테스트");
-		service.insert(vo);
-		service.selectList(vo);
-		service.selectOne(vo);
-		service.delete(vo);
-		
-		return "testFolder/testImage";
-	}
-	
 	@RequestMapping(value = "insertImage.do", method = RequestMethod.GET)
 	public String insertImageForm() {
 		System.out.println("컨트롤러 맵핑 insertImageForm 확인");

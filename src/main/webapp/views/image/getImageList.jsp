@@ -42,10 +42,7 @@
 	
 	<p><a href="insertImage.do">새 이미지 저장 테스트</a></p>
 	
-	<p>
-		스프링 콘솔 창을 보세요
-		<a href="index.do">인덱스 창</a>
-	</p>
+
 	
 	<jsp:include page="/module/foot.jsp"/>
 </body>

@@ -1,16 +1,27 @@
 package com.spring.biz.pet.vo;
 
-public class PetVO {
-	private int petKey;
-	private String masterId;
-	private String name;
+import java.sql.Date;
 
-	public int getPetKey() {
-		return petKey;
+public class PetVO {
+	private int seq;
+	private String name;
+	private String masterId;
+	private Date birthDate;
+
+	public int getSeq() {
+		return seq;
 	}
 
-	public void setPetKey(int petKey) {
-		this.petKey = petKey;
+	public void setSeq(int seq) {
+		this.seq = seq;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public String getMasterId() {
@@ -21,11 +32,12 @@ public class PetVO {
 		this.masterId = masterId;
 	}
 
-	public String getName() {
-		return name;
+	public Date getBirthDate() {
+		return birthDate;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setBirthDate(Date birthDate) {
+		this.birthDate = birthDate;
 	}
+	
 }

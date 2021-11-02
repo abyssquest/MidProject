@@ -9,14 +9,15 @@
 <body>
 	<jsp:include page="/module/log.jsp"/>
 	
-	<p>getPet 페이지</p>
+	getPet 페이지
 	
 	<p></p>
-	
-	<p><a href="getPetList.do">펫 목록</a></p>
-	
-	<p><a href="updatePet.do">펫 수정</a></p>
-	
-	<p><a href="deletePet.do">펫 탈퇴</a></p>
+	<br>펫 이름 : ${ pet.name }
+	<br>펫 생일 : ${ pet.birthDate }
+	<p></p>
+	<br><a href="getPetList.do">펫 목록</a>
+	<br><a href="updatePet.do?seq=${ pet.seq }">펫 수정</a>
+	<br><a href="deletePet.do?seq=${ pet.seq }">펫 삭제</a>
+	<jsp:include page="/module/foot.jsp"/>
 </body>
 </html>

@@ -9,11 +9,13 @@
 <body>
 	<jsp:include page="/module/log.jsp"/>
 	
-	<form action="insertPet.do" method="post" enctype="multipart/form-data">
-		<label>이름</label><input type="text"><br>
-		<input type="submit" value=" 등록 ">
+	<form action="insertPet.do" method="post">
+		<input type="hidden" name="masterId" value="<%= (String)session.getAttribute("id")%>">
+		<label>이름<input type="text" name="name"></label><br>
+		<label>생일<input type="date" name="birthDate"></label><br>
+		<input type="submit" value="등록">
 	</form>
 	
-	
+	<jsp:include page="/module/foot.jsp"/>
 </body>
 </html>
