@@ -33,7 +33,7 @@ public class UserController {
 	@RequestMapping(value = "insertUser.do", method = RequestMethod.GET)
 	public String insertUserForm() {
 		System.out.println("컨트롤러 맵핑 insertUserForm 확인");
-		return "user/insertUser";
+		return "user/insertUser2";
 	}
 	
 	// 계정 추가 자바 작업

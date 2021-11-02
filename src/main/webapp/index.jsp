@@ -5,6 +5,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>홈 페이지</title>
+	<link type="text/css" rel="stylesheet" href="/css/footer.css">
 </head>
 <body>
 	<jsp:include page="/module/log.jsp"/>
@@ -39,5 +40,7 @@
 			<td>더미 테이블 2</td>
 		</tr>
 	</table>
+	
+	<jsp:include page="/module/foot.jsp"/>
 </body>
 </html>

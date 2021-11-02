@@ -2,7 +2,15 @@
 
 <!DOCTYPE html>
 <html>
+<head>
+	<style type="text/css">
+		#module_log {
+			background: lightgray; 
+		}
+	</style>
+</head>
 <body>
+<div id="module_log">
 <%
 	String id=(String)session.getAttribute("id");
 
@@ -14,5 +22,6 @@
 		out.print("<a href=\"login.do\">로그인</a>");
 	}
 %>
+</div>
 </body>
 </html>

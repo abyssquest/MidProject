@@ -7,8 +7,6 @@
 	<title>로그인 페이지</title>
 </head>
 <body>
-	<jsp:include page="/module/log.jsp"/>
-	
 	<form action="login.do" method="post">
 		<p>아이디<input type="text" name="id"></p>
 		<p>패스워드<input type="password" name="password"></p>
