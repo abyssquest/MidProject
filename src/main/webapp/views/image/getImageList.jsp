@@ -15,7 +15,7 @@
 			width:800px; height:150px;
 			border:1px solid black;
 		}
-		.imagebox > .seq {}
+		img { width:300px; height:300px; }
 		.imagebox > .title {}
 		.imagebox > .content {}
 		.imagebox > .masterId {}
@@ -30,12 +30,15 @@
 	<div id="imageboardwrap">
 		<c:forEach items="${ imageList }" var="image">
 			<div class="imagebox">
-				<div class="seq">${ image.seq }</div>
 				<div class="title">${ image.title }</div>
 				<div class="content">${ image.content }</div>
 				<div class="masterId">${ image.masterId }</div>
 				<div class="uploadDate">${ image.uploadDate }</div>
-				<div><a href="getImage.do?seq=${ image.seq }">게시글 세부 링크</a></div>
+				<div>
+					<a href="getImage.do?seq=${ image.seq }">
+					<img src="/biz/save_thumb/${ image.uploadFileName }"/>
+					</a>
+				</div>
 			</div>
 		</c:forEach>
 	</div>

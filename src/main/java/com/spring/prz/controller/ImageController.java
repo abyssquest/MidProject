@@ -1,13 +1,16 @@
 package com.spring.prz.controller;
 
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
+import javax.imageio.ImageIO;
 import javax.servlet.http.HttpSession;
 
 import org.apache.commons.io.FilenameUtils;
+import org.imgscalr.Scalr;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -39,13 +42,15 @@ public class ImageController {
 		
 		if(!file.isEmpty()) {
 			String uploadDir = session.getServletContext().getRealPath("/save_File/");
+			String uploadThumb = session.getServletContext().getRealPath("/save_thumb/");
+			String uploadFileExt = FilenameUtils.getExtension(file.getOriginalFilename());
 			String uploadFileName = (String)session.getAttribute("id") + "-"
-					+ new SimpleDateFormat("yyyyMMdd-HHmmss").format(new Date())
-					+ "." + FilenameUtils.getExtension(file.getOriginalFilename());
+					+ new SimpleDateFormat("yyyyMMdd-HHmmss").format(new Date()) + "." + uploadFileExt;
 			
 			//System.out.println(uploadDir + uploadName);
 			file.transferTo(new File(uploadDir + uploadFileName));
 			
+			makeThumbnail(uploadDir + uploadFileName, uploadThumb + uploadFileName, uploadFileExt);
 			vo.setUploadFileName(uploadFileName);
 		}
 		
@@ -70,12 +75,6 @@ public class ImageController {
 		System.out.println("컨트롤러 맵핑 getImage 확인");
 		
 		ImageVO image = service.selectOne(vo);
-		
-		if ( image.getUploadFileName() !=null || image.getUploadFileName() != "") {
-			String uploadDir = session.getServletContext().getRealPath("/save_File/");
-			model.addAttribute("dir", uploadDir);
-		}
-		
 		model.addAttribute("image", image);
 		
 		return "image/getImage";
@@ -86,12 +85,35 @@ public class ImageController {
 		System.out.println("컨트롤러 맵핑 deleteImage 확인");
 		ImageVO dbVO = service.selectOne(vo);
 		
-		if(dbVO.getMasterId() == (String)session.getAttribute("id")) {
-			service.delete(vo);
-		} else {
-			System.out.println("작성자와 삭제자가 일치하지 않습니다.");
-		}
+		File file1 = new File(session.getServletContext().getRealPath("/save_File/") + dbVO.getUploadFileName());
+		File file2 = new File(session.getServletContext().getRealPath("/save_thumb/") + dbVO.getUploadFileName());
+		
+		System.out.println(file1.exists() ? file1.delete() ? "파일삭제 성공" : "파일삭제 실패" : "파일이 존재하지 않습니다.");
+		System.out.println(file2.exists() ? file2.delete() ? "파일삭제 성공" : "파일삭제 실패" : "파일이 존재하지 않습니다.");
+		
+		service.delete(vo);
 		
 		return "redirect:getImageList.do";
+	}
+	
+	private void makeThumbnail(String inputFile, String outputFile, String fileExt) throws Exception {
+		BufferedImage srcImg = ImageIO.read(new File(inputFile));
+		int dw = 300, dh = 300;
+		int ow = srcImg.getWidth();
+		int oh = srcImg.getHeight();
+		
+		int nw = ow;
+		int nh = (ow * dh) / dw;
+		
+		if(nh > oh) {
+			nh = (oh * dw) / dh;
+			nh = oh;
+		}
+		
+		BufferedImage cropImg = Scalr.crop(srcImg, (ow - nw) / 2, (oh - nh) / 2, nw, nh);
+		BufferedImage destImg = Scalr.resize(cropImg, dw, dh);
+		
+		File thumbFile = new File(outputFile);
+		ImageIO.write(destImg, fileExt.toUpperCase(), thumbFile);
 	}
 }
