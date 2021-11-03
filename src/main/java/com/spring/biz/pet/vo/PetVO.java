@@ -7,6 +7,16 @@ public class PetVO {
 	private String name;
 	private String masterId;
 	private Date birthDate;
+	private String uploadPetFile;
+
+	
+	public String getUploadPetFile() {
+		return uploadPetFile;
+	}
+
+	public void setUploadPetFile(String uploadPetFile) {
+		this.uploadPetFile = uploadPetFile;
+	}
 
 	public int getSeq() {
 		return seq;

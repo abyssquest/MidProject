@@ -14,32 +14,32 @@ public class UserDAOImp implements UserDAO {
 	private SqlSessionTemplate sql;
 	
 	@Override
-	public void insert(UserVO vo) /* throws Exception */ {
-		System.out.println("확인 - dao.insert");
-		//sql.insert("ImageDAO.insert", vo);
+	public void insert(UserVO vo) {
+		//System.out.println("확인 - dao.insert");
+		sql.insert("UserDAO.insert", vo);
 	}
 	
 	@Override
-	public List<UserVO> selectList(UserVO vo) /* throws Exception */ {
-		System.out.println("확인 - dao.selectList");
-		return null; // sql.selectList("ImageDAO.selectList", vo);
+	public List<UserVO> selectList(UserVO vo) {
+		//System.out.println("확인 - dao.selectList");
+		return sql.selectList("UserDAO.selectList", vo);
 	}
 
 	@Override
 	public UserVO selectOne(UserVO vo) {
-		System.out.println("확인 - dao.selectOne");
-		return null; // sql.selectOne("ImageDAO.selectOne", vo);
+		//System.out.println("확인 - dao.selectOne");
+		return sql.selectOne("UserDAO.selectOne", vo);
 	}
 
 	@Override
 	public void update(UserVO vo) {
 		System.out.println("확인 - dao.update");
-		// sql.update("ImageDAO.update", vo);
+		sql.update("UserDAO.update", vo);
 	}
 
 	@Override
 	public void delete(UserVO vo) {
 		System.out.println("확인 - dao.delete");
-		// sql.delete("ImageDAO.delete", vo);
+		sql.delete("UserDAO.delete", vo);
 	}
 }

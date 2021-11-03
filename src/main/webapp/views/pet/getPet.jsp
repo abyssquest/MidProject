@@ -14,7 +14,7 @@
 	<p></p>
 	<br>펫 이름 : ${ pet.name }
 	<br>펫 생일 : ${ pet.birthDate }
-	<p></p>
+	<p><img src="/biz/save_PetImage/${ pet.uploadPetFile }"></p>
 	<br><a href="getPetList.do">펫 목록</a>
 	<br><a href="updatePet.do?seq=${ pet.seq }">펫 수정</a>
 	<br><a href="deletePet.do?seq=${ pet.seq }">펫 삭제</a>

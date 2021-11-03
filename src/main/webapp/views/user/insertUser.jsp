@@ -19,6 +19,5 @@
 		<a href="javascript:history.go(-1)">뒤로 가기</a>
 	</form>
 	
-	
 </body>
 </html>

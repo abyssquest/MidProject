@@ -47,9 +47,7 @@ public class ImageController {
 			String uploadFileName = (String)session.getAttribute("id") + "-"
 					+ new SimpleDateFormat("yyyyMMdd-HHmmss").format(new Date()) + "." + uploadFileExt;
 			
-			//System.out.println(uploadDir + uploadName);
 			file.transferTo(new File(uploadDir + uploadFileName));
-			
 			makeThumbnail(uploadDir + uploadFileName, uploadThumb + uploadFileName, uploadFileExt);
 			vo.setUploadFileName(uploadFileName);
 		}

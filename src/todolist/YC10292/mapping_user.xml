@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC
+	"-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="UserDAO">
+	<!-- 추가 설정 -->
+	<!-- 기본 설정 -->
+	<insert id="insert">
+		<![CDATA[
+		insert into member
+		values(#{name},#{id},#{password},#{address},#{email},sysdate);
+		]]>
+	</insert>
+	<update id="update_C">
+		<![CDATA[
+		update table member set name = #{name} , address = #{address}
+		email = #{email} where id = #{id};
+		]]>
+	</update>
+	
+	<update id="update_P">
+		<![CDATA[
+		update table member set password = #{password} where id = #{id};
+		]]>
+	</update>
+	
+	<delete id="delete">
+		<![CDATA[
+		delete from member where id = {#id};
+		]]>
+	</delete>
+	
+	<select id="selectList" resultType="user">
+		<![CDATA[
+			select * from member;
+		]]>
+	</select>
+	<select id="selectOne" resultType="user">
+		<![CDATA[
+			select * from member where id = #{id};
+		]]>
+	</select>
+</mapper>

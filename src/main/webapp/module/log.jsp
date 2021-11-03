@@ -12,13 +12,13 @@
 <body>
 <div id="module_log">
 <%
-	String id=(String)session.getAttribute("id");
+	String id = (String) session.getAttribute("id");
 
-	if(id !=null){
-		out.print(id+" 님 환영합니다");
-		out.print("&nbsp<a href=\"getUser.do\">계정정보</a>&nbsp&nbsp&nbsp<a href=\"logout.do\">로그아웃</a>");
+	if(id != null){
+		out.print(id+" 님 환영합니다.<br>");
+		out.print("&nbsp<a href=\"getUser.do?id="+id+"\">계정정보</a>&nbsp&nbsp&nbsp<a href=\"logout.do\">로그아웃</a>");
 	}else{
-		out.print("로그인 후 이용 가능합니다.");
+		out.print("로그인 후 이용 가능합니다.<br>");
 		out.print("<a href=\"login.do\">로그인</a>");
 	}
 %>

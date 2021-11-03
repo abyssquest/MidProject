@@ -11,9 +11,9 @@
 	<insert id="insert">
 		<![CDATA[
 		insert into pets
-		(seq, name, masterId, birthDate)
+		(seq, name, masterId, birthDate, uploadPetFile)
 		values
-		((select nvl(max(seq), 0)+1 from pets), #{name}, #{masterId}, #{birthDate})
+		((select nvl(max(seq), 0)+1 from pets), #{name}, #{masterId}, #{birthDate}, #{uploadPetFile, jdbcType=VARCHAR})
 		]]>
 	</insert>
 	<select id="selectList" resultType="pet">

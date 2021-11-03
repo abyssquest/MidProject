@@ -16,41 +16,26 @@ import com.spring.biz.user.vo.UserVO;
 
 @Controller
 public class UserController {
-	@Autowired UserService service;
-	
-	@RequestMapping("testUser.me")
-	public String testUser() {
-		UserVO vo = new UserVO();
-		vo.setId("hong"); // 테스트용
-		
-		System.out.println("UserService 작동 테스트");
-		service.insert(vo);
-		service.selectList(vo);
-		service.selectOne(vo);
-		service.update(vo);
-		service.delete(vo);
-		
-		return "testFolder/testUser";
-	}
+	@Autowired
+	UserService service;
 	
 	// 계정 추가 페이지 : 회원 가입 페이지
 	@RequestMapping(value = "insertUser.do", method = RequestMethod.GET)
 	public String insertUserForm() {
-		System.out.println("컨트롤러 맵핑 insertUserForm 확인");
-		return "user/insertUser2";
+		//System.out.println("컨트롤러 맵핑 insertUserForm 확인");
+		return "user/insertUser";
 	}
 	
 	// 계정 추가 자바 작업
 	@RequestMapping(value = "insertUser.do", method = RequestMethod.POST)
 	public String insertUserProc(UserVO vo) {
-		System.out.println("컨트롤러 맵핑 insertUserProc 확인");
+		//System.out.println("컨트롤러 맵핑 insertUserProc 확인");
 		
 		service.insert(vo);
 		return "redirect:login.do";
 	}
 	
-	
-	// 계정 리스트 조회 : 관리자 계정이나 쓰겠네
+	// 계정 리스트 조회 - 그냥 만듬
 	@RequestMapping("getUserList.do")
 	public String getUserList(Model model, UserVO vo) {
 		System.out.println("컨트롤러 맵핑 getUserList 확인");
@@ -62,9 +47,11 @@ public class UserController {
 	}
 	
 	// 계정 조회 : 회원 정보 조회
-	@RequestMapping("getUser.do")
-	public String getUser(Model model, UserVO vo) {
+	@RequestMapping(value = "getUser.do", method = RequestMethod.GET)
+	public String getUserSelf(Model model, UserVO vo, HttpSession session) {
 		System.out.println("컨트롤러 맵핑 getUser 확인");
+		
+		vo.setId((String) session.getAttribute("id"));
 		
 		UserVO user = service.selectOne(vo);
 		model.addAttribute("user", user);
@@ -74,8 +61,14 @@ public class UserController {
 	
 	// 계정 수정 폼 페이지
 	@RequestMapping(value = "updateUser.do", method = RequestMethod.GET)
-	public String updateUserForm() {
+	public String updateUserForm(Model model, UserVO vo, HttpSession session) {
 		System.out.println("컨트롤러 맵핑 updateUserForm 확인");
+		
+		vo.setId((String)session.getAttribute("id"));
+		
+		UserVO user = service.selectOne(vo);
+		model.addAttribute("user", user);
+		
 		return "user/updateUser";
 	}
 	
@@ -84,61 +77,53 @@ public class UserController {
 	public String updateUserProc(UserVO vo) {
 		System.out.println("컨트롤러 맵핑 updateUserProc 확인");
 		
-		return "toIndex";
+		service.update(vo);
+		
+		return "redirect:getUserList.do";
 	}
 	
-	// 계정 삭제 : 회원 탈퇴
+	// 계정 삭제 : 회원 탈퇴 + 로그아웃
 	@RequestMapping("deleteUser.do")
 	public String deleteUser(UserVO vo, HttpSession session) {
 		System.out.println("컨트롤러 맵핑 deleteUser 확인");
 		
-		UserVO chkVO = new UserVO();
-		chkVO.setId((String)session.getAttribute("id"));
-		
-		UserVO dbVO = service.selectOne(chkVO);
-		
-		if(dbVO.getPassword() == vo.getPassword()) {
-			service.delete(vo);
-		} else {
-			System.out.println("잘못된 접근 경로입니다.");
-		}
-		
+		vo.setId((String)session.getAttribute("id"));
+		service.delete(vo);
+		session.invalidate();
 		return "toIndex";
 	}
 	
 	// 로그인 폼
 	@RequestMapping(value = "login.do" , method = RequestMethod.GET)
 	public String logInForm() {
-		System.out.println("컨트롤러 맵핑 logInForm 확인");
+		//System.out.println("컨트롤러 맵핑 logInForm 확인");
 		return "user/login";
 	}
 	
 	// 로그인 처리
 	@RequestMapping(value = "/login.do" , method = RequestMethod.POST)
 	public String logInProc(UserVO vo , HttpSession session) {
-		System.out.println("컨트롤러 맵핑 logInProc 확인");
+		//System.out.println("컨트롤러 맵핑 logInProc 확인");
+		String result = null;
+		UserVO dbVO = null;
 		
 		if(vo.getId() == null || vo.getId().equals("")) {
 			System.out.println("아이디를 반드시 입력해야 합니다");
 			// throw new IllegalArgumentException("아이디를 반드시 입력해야 합니다.");
 			// 아직 예외 창 안만들어서 유보
-			vo.setId("test"); // 아이디 입력 안할경우 테스트용
 		} else { 
-			UserVO dbVO = service.selectOne(vo);
+			dbVO = service.selectOne(vo);
 		}
 		
-		if ((vo.getPassword() != null) && (vo.getPassword().equals("test"/* savedUser.getPassword() */))) {
-			// 테스트용 비번 test 입력
+		if ((vo.getPassword() != null) && (vo.getPassword().equals(dbVO.getPassword()))) {
 			System.out.println("로그인 성공");
 			session.setAttribute("id", vo.getId());
-			
-			System.out.println(session.getAttribute("id")); // 테스트용
-			System.out.println("세션 저장 확인"); // 테스트용
 		} else {
 			System.out.println("로그인 실패");
 		}
 		
-		return "toIndex";
+		result = "toIndex";
+		return result;
 	}
 	
 	// 로그아웃
