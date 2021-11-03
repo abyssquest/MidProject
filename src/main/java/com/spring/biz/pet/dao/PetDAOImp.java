@@ -15,31 +15,31 @@ public class PetDAOImp implements PetDAO {
 	
 	@Override
 	public void insert(PetVO vo) {
-		System.out.println("확인 - dao.insert");
+		//System.out.println("확인 - dao.insert");
 		sql.insert("PetDAO.insert", vo);
 	}
 	
 	@Override
 	public List<PetVO> selectList(PetVO vo) {
-		System.out.println("확인 - dao.selectList");
+		//System.out.println("확인 - dao.selectList");
 		return sql.selectList("PetDAO.selectList", vo);
 	}
 
 	@Override
 	public PetVO selectOne(PetVO vo) {
-		System.out.println("확인 - dao.selectOne");
+		//System.out.println("확인 - dao.selectOne");
 		return sql.selectOne("PetDAO.selectOne", vo);
 	}
 
 	@Override
 	public void update(PetVO vo) {
-		System.out.println("확인 - dao.update");
+		//System.out.println("확인 - dao.update");
 		sql.update("PetDAO.update", vo);
 	}
 
 	@Override
 	public void delete(PetVO vo) {
-		System.out.println("확인 - dao.delete");
+		//System.out.println("확인 - dao.delete");
 		sql.delete("PetDAO.delete", vo);
 	}
 }

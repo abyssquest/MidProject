@@ -15,31 +15,31 @@ public class UserServiceImp implements UserService {
 	
 	@Override
 	public void insert(UserVO vo) {
-		System.out.println("확인 - service.insert");
+		//System.out.println("확인 - service.insert");
 		dao.insert(vo);
 	}
 
 	@Override
 	public List<UserVO> selectList(UserVO vo) {
-		System.out.println("확인 - service.selectList");
+		//System.out.println("확인 - service.selectList");
 		return dao.selectList(vo);
 	}
 
 	@Override
 	public UserVO selectOne(UserVO vo) {
-		System.out.println("확인 - service.selectOne");
+		//System.out.println("확인 - service.selectOne");
 		return dao.selectOne(vo);
 	}
 
 	@Override
 	public void update(UserVO vo) {
-		System.out.println("확인 - service.update");
+		//System.out.println("확인 - service.update");
 		dao.update(vo);
 	}
 
 	@Override
 	public void delete(UserVO vo) {
-		System.out.println("확인 - service.delete");
+		//System.out.println("확인 - service.delete");
 		dao.delete(vo);
 	}
 }

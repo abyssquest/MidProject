@@ -2,14 +2,16 @@ package com.spring.biz.user.dao;
 
 import java.util.List;
 
+import org.mybatis.spring.SqlSessionTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.spring.biz.user.vo.UserVO;
 
 @Service
 public class UserDAOImp implements UserDAO {
-	//@Autowired
-	//private SqlSessionTemplate sql;
+	@Autowired
+	private SqlSessionTemplate sql;
 	
 	@Override
 	public void insert(UserVO vo) /* throws Exception */ {

@@ -39,5 +39,4 @@ public class PetVO {
 	public void setBirthDate(Date birthDate) {
 		this.birthDate = birthDate;
 	}
-	
 }

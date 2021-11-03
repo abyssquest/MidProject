@@ -22,7 +22,7 @@
 	<p>이미지 컨텐츠 : ${ image.content }</p>
 	<p>이미지 주인 id : ${ image.masterId }</p>
 	<p>이미지 업로드날짜 : ${ image.uploadDate }</p>
-	<img src="/biz/save_File/${ image.uploadFileName }">
+	<img src="/biz/save_file/${ image.uploadFileName }">
 	
 	<table cellpadding="0" cellspacing="0">
 	<tr align="center" valign="middle">

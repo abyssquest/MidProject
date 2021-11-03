@@ -41,7 +41,7 @@ public class ImageController {
 		MultipartFile file = request.getFile("uploadFile");
 		
 		if(!file.isEmpty()) {
-			String uploadDir = session.getServletContext().getRealPath("/save_File/");
+			String uploadDir = session.getServletContext().getRealPath("/save_file/");
 			String uploadThumb = session.getServletContext().getRealPath("/save_thumb/");
 			String uploadFileExt = FilenameUtils.getExtension(file.getOriginalFilename());
 			String uploadFileName = (String)session.getAttribute("id") + "-"
@@ -85,7 +85,7 @@ public class ImageController {
 		//System.out.println("컨트롤러 맵핑 deleteImage 확인");
 		ImageVO dbVO = service.selectOne(vo);
 		
-		File file1 = new File(session.getServletContext().getRealPath("/save_File/") + dbVO.getUploadFileName());
+		File file1 = new File(session.getServletContext().getRealPath("/save_file/") + dbVO.getUploadFileName());
 		File file2 = new File(session.getServletContext().getRealPath("/save_thumb/") + dbVO.getUploadFileName());
 		
 		String msg1 = file1.exists() ? file1.delete() ? "파일삭제 성공" : "파일삭제 실패" : "파일이 존재하지 않습니다.";
