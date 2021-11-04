@@ -22,15 +22,12 @@ public class UserController {
 	// 계정 추가 페이지 : 회원 가입 페이지
 	@RequestMapping(value = "insertUser.do", method = RequestMethod.GET)
 	public String insertUserForm() {
-		//System.out.println("컨트롤러 맵핑 insertUserForm 확인");
 		return "user/insertUser";
 	}
 	
 	// 계정 추가 자바 작업
 	@RequestMapping(value = "insertUser.do", method = RequestMethod.POST)
 	public String insertUserProc(UserVO vo) {
-		//System.out.println("컨트롤러 맵핑 insertUserProc 확인");
-		
 		service.insert(vo);
 		return "redirect:login.do";
 	}
@@ -38,8 +35,6 @@ public class UserController {
 	// 계정 리스트 조회 - 그냥 만듬
 	@RequestMapping("getUserList.do")
 	public String getUserList(Model model, UserVO vo) {
-		System.out.println("컨트롤러 맵핑 getUserList 확인");
-		
 		List<UserVO> list = service.selectList(vo);
 		model.addAttribute("userList", list);
 		
@@ -49,8 +44,6 @@ public class UserController {
 	// 계정 조회 : 회원 정보 조회
 	@RequestMapping(value = "getUser.do", method = RequestMethod.GET)
 	public String getUserSelf(Model model, UserVO vo, HttpSession session) {
-		System.out.println("컨트롤러 맵핑 getUser 확인");
-		
 		vo.setId((String) session.getAttribute("id"));
 		
 		UserVO user = service.selectOne(vo);
@@ -62,8 +55,6 @@ public class UserController {
 	// 계정 수정 폼 페이지
 	@RequestMapping(value = "updateUser.do", method = RequestMethod.GET)
 	public String updateUserForm(Model model, UserVO vo, HttpSession session) {
-		System.out.println("컨트롤러 맵핑 updateUserForm 확인");
-		
 		vo.setId((String)session.getAttribute("id"));
 		
 		UserVO user = service.selectOne(vo);
@@ -75,18 +66,13 @@ public class UserController {
 	// 계정 수정 자바 작업
 	@RequestMapping(value = "updateUser.do", method = RequestMethod.POST)
 	public String updateUserProc(UserVO vo) {
-		System.out.println("컨트롤러 맵핑 updateUserProc 확인");
-		
 		service.update(vo);
-		
 		return "redirect:getUserList.do";
 	}
 	
 	// 계정 삭제 : 회원 탈퇴 + 로그아웃
 	@RequestMapping("deleteUser.do")
 	public String deleteUser(UserVO vo, HttpSession session) {
-		System.out.println("컨트롤러 맵핑 deleteUser 확인");
-		
 		vo.setId((String)session.getAttribute("id"));
 		service.delete(vo);
 		session.invalidate();
@@ -96,14 +82,12 @@ public class UserController {
 	// 로그인 폼
 	@RequestMapping(value = "login.do" , method = RequestMethod.GET)
 	public String logInForm() {
-		//System.out.println("컨트롤러 맵핑 logInForm 확인");
 		return "user/login";
 	}
 	
 	// 로그인 처리
 	@RequestMapping(value = "/login.do" , method = RequestMethod.POST)
 	public String logInProc(UserVO vo , HttpSession session) {
-		//System.out.println("컨트롤러 맵핑 logInProc 확인");
 		String result = null;
 		UserVO dbVO = null;
 		
@@ -131,10 +115,6 @@ public class UserController {
 	public String logOut(HttpSession session) {
 		System.out.println("컨트롤러 맵핑 logOut 확인");
 		
-		// 테스트용
-		System.out.println((session.getAttribute("id") != null) ?
-			session.getAttribute("id") + " 로그아웃 실행" : "로그인 상태가 아닙니다");
-
 		session.invalidate();
 		// id속성 하나만 없앨 수 있으면 좋겠다
 		// 바쁘니 미루고 할거 없음 하자

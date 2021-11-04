@@ -24,6 +24,7 @@ public class PetController {
 	
 	@RequestMapping(value = "insertPet.do", method = RequestMethod.GET)
 	public String insertPetForm() {
+
 		return "pet/insertPet";
 	}
 	
