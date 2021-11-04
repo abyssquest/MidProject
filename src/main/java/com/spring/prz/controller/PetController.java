@@ -37,8 +37,8 @@ public class PetController {
 		MultipartFile file = request.getFile("uploadFile");
 		
 		if(!file.isEmpty()) {
-			String uploadDir = session.getServletContext().getRealPath("/save_PetImage/");
-			String uploadFileName = vo.getMasterId() + "." + FilenameUtils.getExtension(file.getOriginalFilename());
+			String uploadDir = session.getServletContext().getRealPath("/upload/profile_pet/");
+			String uploadFileName = vo.getMasterId() + Integer.toString(vo.getSeq()) + "." + FilenameUtils.getExtension(file.getOriginalFilename());
 			
 			file.transferTo(new File(uploadDir + uploadFileName));
 			vo.setUploadPetFile(uploadFileName);
@@ -72,15 +72,13 @@ public class PetController {
 	
 	@RequestMapping(value = "updatePet.do", method = RequestMethod.GET)
 	public String updatePetForm(Model model, PetVO vo) {
-		//System.out.println("컨트롤러 맵핑 updatePetForm 확인");
-		
 		model.addAttribute("pet", vo);
 		return "pet/updatePet";
 	}
 	
 	@RequestMapping(value = "updatePet.do", method = RequestMethod.POST)
-	public String updatePetProc(PetVO vo) {
-		//System.out.println("컨트롤러 맵핑 updatePetProc 확인");
+	public String updatePetProc(PetVO vo, MultipartHttpServletRequest request ,
+			HttpSession session) throws Exception {
 		
 		service.update(vo);
 		return "redirect:getPetList.do";
@@ -88,12 +86,9 @@ public class PetController {
 	
 	@RequestMapping("deletePet.do")
 	public String deletePet(PetVO vo, HttpSession session) {
-		//System.out.println("컨트롤러 맵핑 deletePet 확인");
-		
 		PetVO dbVO = service.selectOne(vo);
 		
-		File file = new File(session.getServletContext().getRealPath("/save_PetImage/") + dbVO.getUploadPetFile());
-		
+		File file = new File(session.getServletContext().getRealPath("/upload/profile_pet/") + dbVO.getUploadPetFile());
 		String msg = file.exists() ? file.delete() ? "파일삭제 성공" : "파일삭제 실패" : "파일이 존재하지 않습니다.";
 		
 		System.out.println(msg);
