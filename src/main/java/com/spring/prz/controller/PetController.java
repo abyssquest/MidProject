@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
+import com.spring.biz.image.vo.ImageVO;
 import com.spring.biz.pet.service.PetService;
 import com.spring.biz.pet.vo.PetVO;
 
@@ -37,14 +38,10 @@ public class PetController {
 		
 		if(!file.isEmpty()) {
 			String uploadDir = session.getServletContext().getRealPath("/save_PetImage/");
+			String uploadFileName = vo.getMasterId() + "." + FilenameUtils.getExtension(file.getOriginalFilename());
 			
-			//String uploadFileExt = FilenameUtils.getExtension(file.getOriginalFilename());
-			//String uploadFileExt = FilenameUtils.getName(file.getOriginalFilename());
-			String uploadFileName = FilenameUtils.getName(file.getOriginalFilename()); // 파일 경로를 직접 저장.
-			
-			System.out.println(uploadFileName);
 			file.transferTo(new File(uploadDir + uploadFileName));
-			vo.setUploadPetFile(uploadFileName); //이미지 불러올 때 /biz/save_PetImage/ 사용
+			vo.setUploadPetFile(uploadFileName);
 		}
 		
 		service.insert(vo);
@@ -90,8 +87,16 @@ public class PetController {
 	}
 	
 	@RequestMapping("deletePet.do")
-	public String deletePet(PetVO vo) {
+	public String deletePet(PetVO vo, HttpSession session) {
 		//System.out.println("컨트롤러 맵핑 deletePet 확인");
+		
+		PetVO dbVO = service.selectOne(vo);
+		
+		File file = new File(session.getServletContext().getRealPath("/save_PetImage/") + dbVO.getUploadPetFile());
+		
+		String msg = file.exists() ? file.delete() ? "파일삭제 성공" : "파일삭제 실패" : "파일이 존재하지 않습니다.";
+		
+		System.out.println(msg);
 		
 		service.delete(vo);
 		return "redirect:getPetList.do";

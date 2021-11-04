@@ -9,7 +9,9 @@
 	<style type="text/css">
 		td { font-style:italic; }
 		a { text-decoration:none; }
-		a { color: brown; }
+		a { color: #151719; }
+		p { color: #151719; }
+		
 	</style>
 </head>
 <body>
@@ -24,24 +26,35 @@
 	<p>이미지 업로드날짜 : ${ image.uploadDate }</p>
 	<img src="/biz/save_file/${ image.uploadFileName }">
 	
+		 <div class="comment-post comment_box" id="div_21314623" c_idx="21314623" c_type="goods_estimate">
+                                    <div class="comment_recomment comment_wrap">
+                         <div class="recomment_reply">
+                            <p class="recomment_profile">
+                                                                <span><b class="txt-info">댓글쓴이</b></span>
+					        </p>
+                        </div>
+                        <div class="recomment_right">
+                        
+                                        <p class="recomment_txt">
+                                        <span class="cmt_summary"
+                                              more_flag="Y"
+                                              style='cursor:pointer' cmt_no="5952494"
+                                              cmt_type="goods_estimate">
+											댓글 본문</span>
+                                         </p>
+                        </div>
+                    </div>
+                 </div>
+	
 	<table cellpadding="0" cellspacing="0">
 	<tr align="center" valign="middle">
 		<td colspan="5">댓글</td>
-	<tr>
-		<td style="font-family:돋음; font-size:12" height="16">
-			<div align="center">제 목</div>
-		</td>
-		<td>
-			<input name="boardSubject" type="text" size="50" 
-				maxlength="100" value="Re: "/>
-		</td>
-	</tr>
 	<tr>
 		<td style="font-family:돋음; font-size:12">
 			<div align="center">내 용</div>
 		</td>
 		<td>
-			<textarea name="boardContent" cols="100" rows="10"></textarea>
+			<textarea name="boardContent" cols="100" rows="1"></textarea>
 		</td>
 	</tr>
 	<tr bgcolor="cccccc">
