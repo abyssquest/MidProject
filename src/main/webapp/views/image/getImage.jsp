@@ -15,7 +15,7 @@
 	</style>
 </head>
 <body>
-	<jsp:include page="/module/log.jsp"/>
+	<jsp:include page="/views/module/log.jsp"/>
 	
 	<p>getImage 페이지</p>
 	
@@ -24,7 +24,7 @@
 	<p>이미지 컨텐츠 : ${ image.content }</p>
 	<p>이미지 주인 id : ${ image.masterId }</p>
 	<p>이미지 업로드날짜 : ${ image.uploadDate }</p>
-	<img src="/biz/upload/imageboard_main/${ image.uploadFileName }">
+	<img src="/biz/upload/image_main/${ image.fileName }">
 	
 		 <div class="comment-post comment_box" id="div_21314623" c_idx="21314623" c_type="goods_estimate">
                                     <div class="comment_recomment comment_wrap">
@@ -80,7 +80,7 @@
 		<a href="index.do">인덱스 창</a>
 	</p>
 	
-	<jsp:include page="/module/foot.jsp"/>
+	<jsp:include page="/views/module/foot.jsp"/>
 	
 	<script language="javascript">
 		function replyboard(){

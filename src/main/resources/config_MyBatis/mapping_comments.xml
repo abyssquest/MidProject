@@ -9,17 +9,20 @@
 	<!-- 기본 설정 -->
 	<insert id="insert">
 		<![CDATA[
-		
+		insert into comments
+		(seq, imageKey, masterid, content, uploadDate)
+		values
+		((select nvl(max(seq), 0)+1 from comments)
+		, #{imageKey}
+		, #{masterid}
+		, #{content}
+		, sysdate)
 		]]>
 	</insert>
 	<select id="selectList" resultType="comment">
 		<![CDATA[
-		
-		]]>
-	</select>
-	<select id="selectOne" resultType="comment">
-		<![CDATA[
-		
+		select * from comments
+		where imageKey=#{imageKey}
 		]]>
 	</select>
 	<update id="update">
@@ -29,7 +32,7 @@
 	</update>
 	<delete id="delete">
 		<![CDATA[
-		
+		delete from comments where imageKey=#{imageKey}
 		]]>
 	</delete>
 </mapper>

@@ -4,29 +4,30 @@ drop table imageboard purge;
 drop table comments purge;
 
 create table member(
-	id varchar2(10) primary key ,
-	name varchar2(10),
-	password varchar2(15) ,
-	address varchar2(30) ,
-	email varchar2(20) ,
-	join_date date default sysdate
+	id				varchar2(20)	primary key,
+	password		varchar2(20),
+	name			varchar2(20),
+	profileImage	varchar2(30),
+	email			varchar2(20),
+	address			varchar2(30),
+	joinDate		date			default sysdate
 );
 
 create table pets(
-	seq				number(10)		primary key,
-	name			varchar(100),
-	masterId		varchar(100),
-	birthDate		Date,
-	uploadPetFile	varchar(100)
+	petKey			number(10)		primary key,
+	masterId		varchar(20),
+	name			varchar(20),
+	petImage		varchar(40),
+	birthDate		Date
 );
 
 create table imageboard(
 	seq					number(10)		primary key,
-	title				varchar(100),
+	masterId			varchar(20),
+	title				varchar(50),
 	content				varchar(200),
-	masterId			varchar(100),
 	uploadDate			Date,
-	uploadFileName		varchar(200)
+	fileName			varchar(100)
 );
 
 create table comments(

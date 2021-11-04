@@ -7,7 +7,7 @@
 	<title>getUser</title>
 </head>
 <body>
-	<jsp:include page="/module/log.jsp"/>
+	<jsp:include page="/views/module/log.jsp"/>
 	
 	<p>계정 정보 페이지</p>
 	
@@ -15,14 +15,15 @@
 	<p>회원 password : ${ user.password }</p>
 	<p>회원 name : ${ user.name }</p>
 	<p>회원 email : ${ user.email }</p>
-	<p>회원 join_date : ${ user.join_date }</p>
+	<p>회원 join_date : ${ user.joinDate }</p>
+	<img src="/biz/upload/profile_user/${ user.profileImage }">
 	
 	<p><a href="getUserList.do">유저 목록</a></p>
 	
-	<p><a href="updateUser.do?">유저 수정</a></p>
+	<p><a href="updateUser.do">유저 수정</a></p>
 	
-	<p><a href="deleteUser.do?">유저 탈퇴</a></p>
+	<p><a href="deleteUser.do">유저 탈퇴</a></p>
 	
-	<jsp:include page="/module/foot.jsp"/>
+	<jsp:include page="/views/module/foot.jsp"/>
 </body>
 </html>

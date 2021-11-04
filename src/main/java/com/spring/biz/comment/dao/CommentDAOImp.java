@@ -15,26 +15,21 @@ public class CommentDAOImp implements CommentDAO{
 
 	@Override
 	public void insert(CommentVO vo) {
-		//sql.insert("CommentDAO.insert",vo);
+		sql.insert("CommentDAO.insert",vo);
 	}
 
 	@Override
 	public List<CommentVO> selectList(CommentVO vo) {
-		return null; // sql.selectList("CommentDAO.selectList",vo);
+		return sql.selectList("CommentDAO.selectList",vo);
 	}
-	
-	@Override
-	public CommentVO selectOne(CommentVO vo) {
-		return null; // sql.selectOne("CommentDAO.selectOne",vo);
-	}
-	
+
 	@Override
 	public void update(CommentVO vo) {
-		//sql.update("CommentDAO.update",vo);
+		// sql.update("CommentDAO.update",vo);
 	}
-	
+
 	@Override
 	public void delete(CommentVO vo) {
-		//sql.delete("CommentDAO.delete",vo);
+		sql.delete("CommentDAO.delete",vo);
 	}
 }

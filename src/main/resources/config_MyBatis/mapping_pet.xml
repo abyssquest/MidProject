@@ -6,14 +6,16 @@
 <mapper namespace="PetDAO">
 	<!-- 추가 설정 -->
 	<!-- 기본 설정 -->
-
-	<!-- 기본 설정 -->
 	<insert id="insert">
 		<![CDATA[
 		insert into pets
-		(seq, name, masterId, birthDate, uploadPetFile)
+		(petKey, masterId, name, petImage, birthDate)
 		values
-		((select nvl(max(seq), 0)+1 from pets), #{name}, #{masterId}, #{birthDate}, #{uploadPetFile, jdbcType=VARCHAR})
+		((select nvl(max(petKey), 0)+1 from pets)
+		, #{masterId}
+		, #{name}
+		, #{petImage, jdbcType=VARCHAR}
+		, #{birthDate, jdbcType=VARCHAR})
 		]]>
 	</insert>
 	<select id="selectList" resultType="pet">
@@ -21,28 +23,31 @@
 		select *
 		from pets
 		where masterId=#{masterId, jdbcType=VARCHAR}
-		order by seq desc
+		order by petKey desc
 		]]>
 	</select>
 	<select id="selectOne" resultType="pet">
 		<![CDATA[
 		select *
 		from pets
-		where seq=#{seq}
+		where petKey=#{petKey}
 		]]>
 	</select>
 	<update id="update">
 		<![CDATA[
 		update pets
-		set name=#{name}, birthDate=#{birthDate}, uploadPetFile=#{uploadPetFile, jdbcType=VARCHAR}
-		where seq=#{seq}
+		set
+		name=#{name}
+		, petImage=#{petImage, jdbcType=VARCHAR}
+		, birthDate=#{birthDate, jdbcType=VARCHAR}
+		where petKey=#{petKey}
 		]]>
 	</update>
 	<delete id="delete">
 		<![CDATA[
 		delete
 		from pets
-		where seq=#{seq}
+		where petKey=#{petKey}
 		]]>
 	</delete>
 </mapper>

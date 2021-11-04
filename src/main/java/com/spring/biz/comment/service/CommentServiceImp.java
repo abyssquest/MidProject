@@ -10,7 +10,6 @@ import com.spring.biz.comment.vo.CommentVO;
 
 @Service
 public class CommentServiceImp implements CommentService{
-	
 	@Autowired
 	CommentDAO dao;
 
@@ -18,15 +17,10 @@ public class CommentServiceImp implements CommentService{
 	public void insert(CommentVO vo) {
 		dao.insert(vo);
 	}
-	
+
 	@Override
 	public List<CommentVO> selectList(CommentVO vo) {
 		return dao.selectList(vo);
-	}
-	
-	@Override
-	public CommentVO selectOne(CommentVO vo) {
-		return dao.selectOne(vo);
 	}
 
 	@Override

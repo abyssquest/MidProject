@@ -4,11 +4,11 @@ import java.sql.Date;
 
 public class ImageVO {
 	private int seq;
+	private String masterId;
 	private String title;
 	private String content;
-	private String masterId;
 	private Date uploadDate;
-	private String uploadFileName;
+	private String fileName;
 
 	public int getSeq() {
 		return seq;
@@ -16,6 +16,14 @@ public class ImageVO {
 
 	public void setSeq(int seq) {
 		this.seq = seq;
+	}
+
+	public String getMasterId() {
+		return masterId;
+	}
+
+	public void setMasterId(String masterId) {
+		this.masterId = masterId;
 	}
 
 	public String getTitle() {
@@ -34,14 +42,6 @@ public class ImageVO {
 		this.content = content;
 	}
 
-	public String getMasterId() {
-		return masterId;
-	}
-
-	public void setMasterId(String masterId) {
-		this.masterId = masterId;
-	}
-
 	public Date getUploadDate() {
 		return uploadDate;
 	}
@@ -50,11 +50,11 @@ public class ImageVO {
 		this.uploadDate = uploadDate;
 	}
 
-	public String getUploadFileName() {
-		return uploadFileName;
+	public String getFileName() {
+		return fileName;
 	}
 
-	public void setUploadFileName(String uploadFileName) {
-		this.uploadFileName = uploadFileName;
+	public void setFileName(String fileName) {
+		this.fileName = fileName;
 	}
 }

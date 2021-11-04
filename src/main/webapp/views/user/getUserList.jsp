@@ -8,7 +8,7 @@
 	<title>getUserList</title>
 </head>
 <body>
-	<jsp:include page="/module/log.jsp"/>
+	<jsp:include page="/views/module/log.jsp"/>
 	
 	<p>유저 목록 내용</p>
 	<table>
@@ -17,7 +17,7 @@
 			<th>password</th>
 			<th>name</th>
 			<th>email</th>
-			<th>join_Date</th>
+			<th>joinDate</th>
 		</tr>
 		<c:forEach items="${ userList }" var="user">
 			<tr>
@@ -25,7 +25,7 @@
 				<td>${ user.password }</td>
 				<td>${ user.name }</td>
 				<td>${ user.email }</td>
-				<td>${ user.join_date }</td>
+				<td>${ user.joinDate }</td>
 			</tr>
 		</c:forEach>
 	</table>
@@ -33,6 +33,6 @@
 	
 	<p><a href="insertUser.do">유저 등록 테스트</a></p>
 		
-	<jsp:include page="/module/foot.jsp"/>
+	<jsp:include page="/views/module/foot.jsp"/>
 </body>
 </html>

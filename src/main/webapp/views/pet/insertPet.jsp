@@ -7,7 +7,7 @@
 	<title>insertPetForm</title>
 </head>
 <body>
-	<jsp:include page="/module/log.jsp"/>
+	<jsp:include page="/views/module/log.jsp"/>
 	
 	<form action="insertPet.do" method="post" enctype="multipart/form-data">
 		<input type="hidden" name="masterId" value="<%= (String)session.getAttribute("id")%>">
@@ -17,6 +17,6 @@
 		<input type="submit" value="등록">
 	</form>
 	
-	<jsp:include page="/module/foot.jsp"/>
+	<jsp:include page="/views/module/foot.jsp"/>
 </body>
 </html>

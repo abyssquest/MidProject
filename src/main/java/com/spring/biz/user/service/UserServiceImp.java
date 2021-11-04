@@ -12,34 +12,29 @@ import com.spring.biz.user.vo.UserVO;
 public class UserServiceImp implements UserService {
 	@Autowired
 	UserDAO dao;
-	
+
 	@Override
 	public void insert(UserVO vo) {
-		//System.out.println("확인 - service.insert");
 		dao.insert(vo);
 	}
 
 	@Override
 	public List<UserVO> selectList(UserVO vo) {
-		//System.out.println("확인 - service.selectList");
 		return dao.selectList(vo);
 	}
 
 	@Override
 	public UserVO selectOne(UserVO vo) {
-		//System.out.println("확인 - service.selectOne");
 		return dao.selectOne(vo);
 	}
 
 	@Override
 	public void update(UserVO vo) {
-		//System.out.println("확인 - service.update");
 		dao.update(vo);
 	}
 
 	@Override
 	public void delete(UserVO vo) {
-		//System.out.println("확인 - service.delete");
 		dao.delete(vo);
 	}
 }

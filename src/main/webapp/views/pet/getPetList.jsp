@@ -11,7 +11,7 @@
 	</style>
 </head>
 <body>
-	<jsp:include page="/module/log.jsp"/>
+	<jsp:include page="/views/module/log.jsp"/>
 	
 	<p>펫 목록 내용</p>
 	<table>
@@ -22,7 +22,7 @@
 		</tr>
 		<c:forEach items="${ petList }" var="pet">
 			<tr>
-				<td><a href="getPet.do?seq=${ pet.seq }">${ pet.name }</a></td>
+				<td><a href="getPet.do?petKey=${ pet.petKey }">${ pet.name }</a></td>
 				<td>${ pet.masterId }</td>
 				<td>${ pet.birthDate }</td>
 			</tr>
@@ -32,6 +32,6 @@
 	
 	<p><a href="insertPet.do">새 펫 등록</a></p>
 	
-	<jsp:include page="/module/foot.jsp"/>
+	<jsp:include page="/views/module/foot.jsp"/>
 </body>
 </html>

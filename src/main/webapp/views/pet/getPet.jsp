@@ -7,17 +7,18 @@
 	<title>getPet</title>
 </head>
 <body>
-	<jsp:include page="/module/log.jsp"/>
+	<jsp:include page="/views/module/log.jsp"/>
 	
 	getPet 페이지
 	
 	<p></p>
 	<br>펫 이름 : ${ pet.name }
 	<br>펫 생일 : ${ pet.birthDate }
-	<p><img src="/biz/upload/profile_pet/${ pet.uploadPetFile }"></p>
+	<p><img src="/biz/upload/profile_pet/${ pet.petImage }"></p>
 	<br><a href="getPetList.do">펫 목록</a>
-	<br><a href="updatePet.do?seq=${ pet.seq }">펫 수정</a>
-	<br><a href="deletePet.do?seq=${ pet.seq }">펫 삭제</a>
-	<jsp:include page="/module/foot.jsp"/>
+	<br><a href="updatePet.do?petKey=${ pet.petKey }">펫 수정</a>
+	<br><a href="deletePet.do?petKey=${ pet.petKey }">펫 삭제</a>
+
+	<jsp:include page="/views/module/foot.jsp"/>
 </body>
 </html>

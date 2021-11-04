@@ -3,35 +3,18 @@ package com.spring.biz.pet.vo;
 import java.sql.Date;
 
 public class PetVO {
-	private int seq;
-	private String name;
+	private int petKey;
 	private String masterId;
+	private String name;
+	private String petImage;
 	private Date birthDate;
-	private String uploadPetFile;
 
-	
-	public String getUploadPetFile() {
-		return uploadPetFile;
+	public int getPetKey() {
+		return petKey;
 	}
 
-	public void setUploadPetFile(String uploadPetFile) {
-		this.uploadPetFile = uploadPetFile;
-	}
-
-	public int getSeq() {
-		return seq;
-	}
-
-	public void setSeq(int seq) {
-		this.seq = seq;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
+	public void setPetKey(int petKey) {
+		this.petKey = petKey;
 	}
 
 	public String getMasterId() {
@@ -42,11 +25,27 @@ public class PetVO {
 		this.masterId = masterId;
 	}
 
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
 	public Date getBirthDate() {
 		return birthDate;
 	}
 
 	public void setBirthDate(Date birthDate) {
 		this.birthDate = birthDate;
+	}
+
+	public String getPetImage() {
+		return petImage;
+	}
+
+	public void setPetImage(String petImage) {
+		this.petImage = petImage;
 	}
 }

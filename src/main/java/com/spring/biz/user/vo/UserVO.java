@@ -6,16 +6,10 @@ public class UserVO {
 	private String id;
 	private String password;
 	private String name;
+	private String profileImage;
 	private String email;
-	private Date join_date;
-	
-	public Date getJoin_date() {
-		return join_date;
-	}
-
-	public void setJoin_date(Date join_date) {
-		this.join_date = join_date;
-	}
+	// private String address;
+	private Date joinDate;
 
 	public String getId() {
 		return id;
@@ -41,11 +35,27 @@ public class UserVO {
 		this.name = name;
 	}
 
+	public String getProfileImage() {
+		return profileImage;
+	}
+
+	public void setProfileImage(String profileImage) {
+		this.profileImage = profileImage;
+	}
+
 	public String getEmail() {
 		return email;
 	}
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	public Date getJoinDate() {
+		return joinDate;
+	}
+
+	public void setJoinDate(Date joinDate) {
+		this.joinDate = joinDate;
 	}
 }

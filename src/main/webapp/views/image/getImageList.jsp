@@ -20,10 +20,11 @@
 		.imagebox > .content {}
 		.imagebox > .masterId {}
 		.imagebox > .uploadDate {}
+		.imagebox > div > a > img {}
 	</style>
 </head>
 <body>
-	<jsp:include page="/module/log.jsp"/>
+	<jsp:include page="/views/module/log.jsp"/>
 	
 	<p>이미지 게시판 내용</p>
 	
@@ -36,7 +37,7 @@
 				<div class="uploadDate">${ image.uploadDate }</div>
 				<div>
 					<a href="getImage.do?seq=${ image.seq }">
-					<img src="/biz/upload/imageboard_thumb/${ image.uploadFileName }"/>
+					<img src="/biz/upload/image_thumb/${ image.fileName }"/>
 					</a>
 				</div>
 			</div>
@@ -45,6 +46,6 @@
 	
 	<p><a href="insertImage.do">새 이미지 저장</a></p>
 	
-	<jsp:include page="/module/foot.jsp"/>
+	<jsp:include page="/views/module/foot.jsp"/>
 </body>
 </html>

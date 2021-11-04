@@ -2,6 +2,7 @@ package com.spring.prz.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,8 +10,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 
-import com.spring.biz.image.vo.ImageVO;
+import com.spring.biz.file.service.FileService;
 import com.spring.biz.user.service.UserService;
 import com.spring.biz.user.vo.UserVO;
 
@@ -19,29 +21,31 @@ public class UserController {
 	@Autowired
 	UserService service;
 	
-	// 계정 추가 페이지 : 회원 가입 페이지
+	@Autowired
+	FileService fileService;
+	
 	@RequestMapping(value = "insertUser.do", method = RequestMethod.GET)
 	public String insertUserForm() {
 		return "user/insertUser";
 	}
 	
-	// 계정 추가 자바 작업
 	@RequestMapping(value = "insertUser.do", method = RequestMethod.POST)
-	public String insertUserProc(UserVO vo) {
+	public String insertUserProc(UserVO vo, MultipartHttpServletRequest request)
+			throws Exception {
+		
+		vo.setProfileImage(fileService.insertImage(vo, request));
+		
 		service.insert(vo);
 		return "redirect:login.do";
 	}
 	
-	// 계정 리스트 조회 - 그냥 만듬
 	@RequestMapping("getUserList.do")
 	public String getUserList(Model model, UserVO vo) {
 		List<UserVO> list = service.selectList(vo);
 		model.addAttribute("userList", list);
-		
 		return "user/getUserList";
 	}
 	
-	// 계정 조회 : 회원 정보 조회
 	@RequestMapping(value = "getUser.do", method = RequestMethod.GET)
 	public String getUserSelf(Model model, UserVO vo, HttpSession session) {
 		vo.setId((String) session.getAttribute("id"));
@@ -56,26 +60,32 @@ public class UserController {
 	@RequestMapping(value = "updateUser.do", method = RequestMethod.GET)
 	public String updateUserForm(Model model, UserVO vo, HttpSession session) {
 		vo.setId((String)session.getAttribute("id"));
-		
 		UserVO user = service.selectOne(vo);
 		model.addAttribute("user", user);
-		
 		return "user/updateUser";
 	}
 	
 	// 계정 수정 자바 작업
 	@RequestMapping(value = "updateUser.do", method = RequestMethod.POST)
-	public String updateUserProc(UserVO vo) {
+	public String updateUserProc(UserVO vo, MultipartHttpServletRequest request)
+			throws Exception {
+		vo.setId((String)request.getSession().getAttribute("id"));
+		
+		System.out.println(fileService.deleteImage(vo, request));
+		vo.setProfileImage(fileService.insertImage(vo, request));
+		
 		service.update(vo);
 		return "redirect:getUserList.do";
 	}
 	
 	// 계정 삭제 : 회원 탈퇴 + 로그아웃
 	@RequestMapping("deleteUser.do")
-	public String deleteUser(UserVO vo, HttpSession session) {
-		vo.setId((String)session.getAttribute("id"));
+	public String deleteUser(UserVO vo, HttpServletRequest request) {
+		vo.setId((String)request.getSession().getAttribute("id"));
+		
+		System.out.println(fileService.deleteImage(vo, request));
 		service.delete(vo);
-		session.invalidate();
+		request.getSession().invalidate();
 		return "toIndex";
 	}
 	
