@@ -24,7 +24,7 @@
 	<p>이미지 컨텐츠 : ${ image.content }</p>
 	<p>이미지 주인 id : ${ image.masterId }</p>
 	<p>이미지 업로드날짜 : ${ image.uploadDate }</p>
-	<img src="/biz/save_file/${ image.uploadFileName }">
+	<img src="/biz/upload/imageboard_main/${ image.uploadFileName }">
 	
 		 <div class="comment-post comment_box" id="div_21314623" c_idx="21314623" c_type="goods_estimate">
                                     <div class="comment_recomment comment_wrap">

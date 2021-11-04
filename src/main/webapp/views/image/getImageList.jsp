@@ -36,7 +36,7 @@
 				<div class="uploadDate">${ image.uploadDate }</div>
 				<div>
 					<a href="getImage.do?seq=${ image.seq }">
-					<img src="/biz/save_thumb/${ image.uploadFileName }"/>
+					<img src="/biz/upload/imageboard_thumb/${ image.uploadFileName }"/>
 					</a>
 				</div>
 			</div>

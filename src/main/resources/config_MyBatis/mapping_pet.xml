@@ -34,7 +34,7 @@
 	<update id="update">
 		<![CDATA[
 		update pets
-		set name=#{name}, birthDate=#{birthDate}
+		set name=#{name}, birthDate=#{birthDate}, uploadPetFile=#{uploadPetFile, jdbcType=VARCHAR}
 		where seq=#{seq}
 		]]>
 	</update>
