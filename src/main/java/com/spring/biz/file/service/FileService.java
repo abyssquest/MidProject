@@ -105,29 +105,51 @@ public class FileService {
 		HttpSession session = request.getSession();
 		UserVO dbVO = userService.selectOne(vo);
 		
-		File dbfile = new File(getDir(vo, session) + dbVO.getProfileImage());
-		result = "유저 프로필 이미지 파일 " + (dbfile.exists() ? dbfile.delete() ? "삭제 성공" : "삭제 실패" : "미존재");
+		String fileName = dbVO.getProfileImage();
+		
+		if (fileName != null || fileName != "") {
+			File dbfile = new File(getDir(vo, session) + fileName);
+			result = fileName + (dbfile.delete() ? "삭제 성공" : "삭제 실패");
+		}
+		
 		return result;
 	}
 
 	public String deleteImage(PetVO vo, HttpServletRequest request) {
+		String result = null;
+		
 		HttpSession session = request.getSession();
 		PetVO dbVO = petService.selectOne(vo);
-		File dbfile = new File(getDir(vo, session) + dbVO.getPetImage());
-		return "펫 프로필 이미지 파일 " + (dbfile.exists() ? dbfile.delete() ? "삭제 성공" : "삭제 실패" : "미존재");
+		
+		String fileName = dbVO.getPetImage();
+		
+		if (fileName != null || fileName != "") {
+			File dbfile = new File(getDir(vo, session) + fileName);
+			result = fileName + (dbfile.delete() ? "삭제 성공" : "삭제 실패");
+		}
+		
+		return result; 
 	}
 
 	public String deleteImage(ImageVO vo, HttpServletRequest request) {
+		String result = null;
+		
 		HttpSession session = request.getSession();
 		ImageVO dbVO = imageService.selectOne(vo);
+		
+		String fileName = dbVO.getFileName();
 
-		File dbfile1 = new File(getDir(session) + dbVO.getFileName());
-		File dbfile2 = new File(getThumb(session) + dbVO.getFileName());
+		if (fileName != null || fileName != "") {
+			File dbfile1 = new File(getDir(session) + fileName);
+			File dbfile2 = new File(getThumb(session) + fileName);
+			
+			String msg1 = fileName + (dbfile1.delete() ? "삭제 성공" : "삭제 실패");
+			String msg2 = fileName + "썸네일" + (dbfile2.delete() ? "삭제 성공" : "삭제 실패");
+			
+			result = msg1 + "\n" + msg2;
+		}
 
-		String msg1 = "이미지 메인 파일 " + (dbfile1.exists() ? dbfile1.delete() ? "삭제 성공" : "삭제 실패" : "미존재");
-		String msg2 = "이미지 썸네일 파일 " + (dbfile2.exists() ? dbfile2.delete() ? "삭제 성공" : "삭제 실패" : "미존재");
-
-		return msg1 + msg2;
+		return result;
 	}
 
 	private void makeThumbnail(String inputFile, String outputFile, String fileExt) throws Exception {
