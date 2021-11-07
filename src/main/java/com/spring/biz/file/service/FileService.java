@@ -156,7 +156,7 @@ public class FileService {
 
 		BufferedImage srcImg = ImageIO.read(new File(inputFile));
 
-		int dw = 300, dh = 300;
+		int dw = 250, dh = 250;
 		int ow = srcImg.getWidth();
 		int oh = srcImg.getHeight();
 

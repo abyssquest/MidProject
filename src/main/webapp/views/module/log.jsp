@@ -4,6 +4,10 @@
 <html>
 <head>
 	<style type="text/css">
+		html, body {
+			width: 100%; height: 100%;
+			margin: 0;
+		}
 		#module_log {
 			background: lightgray; 
 		}
@@ -12,7 +16,7 @@
 <body>
 <div id="module_log">
 <%
-	String id = (String) session.getAttribute("id");
+	String id = (String)session.getAttribute("id");
 
 	if(id != null){
 		out.print(id+" 님 환영합니다.<br>");

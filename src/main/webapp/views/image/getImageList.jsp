@@ -7,20 +7,14 @@
 	<meta charset="UTF-8">
 	<title>getImageList</title>
 	<style type="text/css">
-		#imageboardwrap {
-			width:1000px; height:1000px;
-			border:1px solid black;
+		.img_wrap {
+			margin: 0 auto; border: 3px;
+			width: 1250px; height: 500px; 
 		}
-		.imagebox {
-			width:800px; height:150px;
-			border:1px solid black;
+		img {
+			width:250px; height:250px;
+			object-fit: cover;
 		}
-		img { width:300px; height:300px; }
-		.imagebox > .title {}
-		.imagebox > .content {}
-		.imagebox > .masterId {}
-		.imagebox > .uploadDate {}
-		.imagebox > div > a > img {}
 	</style>
 </head>
 <body>
@@ -28,21 +22,23 @@
 	
 	<p>이미지 게시판 내용</p>
 	
-	<div id="imageboardwrap">
-		<c:forEach items="${ imageList }" var="image">
-			<div class="imagebox">
-				<div class="title">${ image.title }</div>
-				<div class="content">${ image.content }</div>
-				<div class="masterId">${ image.masterId }</div>
-				<div class="uploadDate">${ image.uploadDate }</div>
-				<div>
-					<a href="getImage.do?seq=${ image.seq }">
-					<img src="/biz/upload/image_thumb/${ image.fileName }"/>
-					</a>
-				</div>
-			</div>
+	<table class="img_wrap">
+		<tr>
+		<c:forEach items="${ imageList }" var="image" begin="0" end="9" step="1" varStatus="status">
+			<c:if test="${ status.count == 6 }">
+				</tr><tr>
+			</c:if>
+			<td>
+				<a href="getImage.do?seq=${ image.seq }">
+				<img src="/biz/upload/image_thumb/${ image.fileName }">
+				</a>
+			</td>
+			<c:if test="${ status.count == 10 }">
+				
+			</c:if>
 		</c:forEach>
-	</div>
+		</tr>
+	</table>
 	
 	<p><a href="insertImage.do">새 이미지 저장</a></p>
 	

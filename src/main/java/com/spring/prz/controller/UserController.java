@@ -88,47 +88,4 @@ public class UserController {
 		request.getSession().invalidate();
 		return "toIndex";
 	}
-	
-	// 로그인 폼
-	@RequestMapping(value = "login.do" , method = RequestMethod.GET)
-	public String logInForm() {
-		return "user/login";
-	}
-	
-	// 로그인 처리
-	@RequestMapping(value = "/login.do" , method = RequestMethod.POST)
-	public String logInProc(UserVO vo , HttpSession session) {
-		String result = null;
-		UserVO dbVO = null;
-		
-		if(vo.getId() == null || vo.getId().equals("")) {
-			System.out.println("아이디를 반드시 입력해야 합니다");
-			// throw new IllegalArgumentException("아이디를 반드시 입력해야 합니다.");
-			// 아직 예외 창 안만들어서 유보
-		} else { 
-			dbVO = service.selectOne(vo);
-		}
-		
-		if ((vo.getPassword() != null) && (vo.getPassword().equals(dbVO.getPassword()))) {
-			System.out.println("로그인 성공");
-			session.setAttribute("id", vo.getId());
-		} else {
-			System.out.println("로그인 실패");
-		}
-		
-		result = "toIndex";
-		return result;
-	}
-	
-	// 로그아웃
-	@RequestMapping("logout.do")
-	public String logOut(HttpSession session) {
-		System.out.println("컨트롤러 맵핑 logOut 확인");
-		
-		session.invalidate();
-		// id속성 하나만 없앨 수 있으면 좋겠다
-		// 바쁘니 미루고 할거 없음 하자
-		
-		return "toIndex"; 
-	}
 }
