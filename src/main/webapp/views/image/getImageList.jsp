@@ -57,8 +57,6 @@ request.setCharacterEncoding( "utf-8" );
 <body>
 	<jsp:include page="/views/module/top.jsp"/>
 	
-	<div id="wrap">
-	
 	<table class="img_wrap">
 		<tr>
 		<c:forEach items="${ imageList }" var="image" begin="0" end="9" step="1" varStatus="status">
@@ -133,7 +131,6 @@ request.setCharacterEncoding( "utf-8" );
 		<!--//페이지넘버-->
 		<p><a href="insertImage.do">새 이미지 저장</a></p>
 		
-	</div>
 </body>
 </html>
 	
