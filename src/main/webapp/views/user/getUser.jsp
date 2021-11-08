@@ -7,7 +7,7 @@
 	<title>getUser</title>
 </head>
 <body>
-	<jsp:include page="/views/module/log.jsp"/>
+	<jsp:include page="/views/module/top.jsp"/>
 	
 	<p>계정 정보 페이지</p>
 	

@@ -26,7 +26,7 @@
 	</style>
 </head>
 <body>
-	<jsp:include page="/views/module/log.jsp"/>
+	<jsp:include page="/views/module/top.jsp"/>
 	
 	<table id="image">
 		<tr>

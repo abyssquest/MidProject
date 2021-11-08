@@ -7,7 +7,8 @@
 	<title>홈 페이지</title>
 </head>
 <body>
-	<jsp:include page="/views/module/log.jsp"/>
+	<jsp:include page="/views/module/top.jsp"/>
+	
 	<p>테스트 하기 전에 : src / main / webapp / SQL / reset.sql 실행하기</p>
 	<p></p>
 	<p>할일 : <br>

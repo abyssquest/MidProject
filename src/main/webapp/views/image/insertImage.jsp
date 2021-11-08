@@ -64,8 +64,8 @@
 	</style>
 </head>
 <body>
-
-	<jsp:include page="/views/module/log.jsp"/>
+	<jsp:include page="/views/module/top.jsp"/>
+	
 	<form action="insertImage.do" method="post" enctype="multipart/form-data">
 		<input type="hidden" name="masterId" value="<%= (String)session.getAttribute("id") %>">
 

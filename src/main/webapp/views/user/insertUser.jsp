@@ -7,7 +7,7 @@
 	<title>insertUser</title>
 </head>
 <body>
-	<jsp:include page="/views/module/log.jsp"/>
+	<jsp:include page="/views/module/top.jsp"/>
 	
 	<form action="insertUser.do" method="post" enctype="multipart/form-data">
 		<label>아이디</label><input type="text" name="id"><br>

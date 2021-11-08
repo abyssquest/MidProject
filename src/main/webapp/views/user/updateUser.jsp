@@ -7,7 +7,7 @@
 	<title>updateUser</title>
 </head>
 <body>
-	<jsp:include page="/views/module/log.jsp"/>
+	<jsp:include page="/views/module/top.jsp"/>
 	
 	<form action="updateUser.do" method="post" enctype="multipart/form-data">
 		<label>패스워드<input type="password" name="password"></label><br>
