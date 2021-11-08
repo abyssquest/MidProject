@@ -94,8 +94,8 @@
 			<li>병원</li>
 			<li>카페</li>
 			<li>펜션</li>
-			<li>보호소</li>
-			<li>커뮤니티</li>
+			<li><a href="getPetList.do">보호소</a></li>
+			<li><a href="getUserList.do">커뮤니티</a></li>
 		</ul>
 		<div id="log_msg">
 		<%
