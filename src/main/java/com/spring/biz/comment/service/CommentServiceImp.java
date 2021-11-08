@@ -24,6 +24,11 @@ public class CommentServiceImp implements CommentService{
 	}
 
 	@Override
+	public CommentVO selectOne(CommentVO vo) {
+		return dao.selectOne(vo);
+	}
+
+	@Override
 	public void update(CommentVO vo) {
 		dao.update(vo);
 	}

@@ -14,7 +14,7 @@
 		h2 {
 			text-align: center;
 			color: white;
-			font-size: 44px;
+			font-size: 32px;
 			font-family: "Gamja Flower";
 			margin: 20px auto;
 		}
@@ -34,7 +34,7 @@
 		tr > td:first-child {
 			font-weight: bolder;
 			text-align: center;
-			width: 120px; height: 20px;
+			width: 120px; height: 50px;
 		}
 		input[type=text], input[type=password], input[type=email] {
 				display: block;
@@ -52,6 +52,7 @@
 	<jsp:include page="/views/module/top.jsp"/>
 	<h2>회원가입</h2>
 	<form action="insertUser.do" method="post" enctype="multipart/form-data" onsubmit="return onSubmit()">
+		<h2>회원가입</h2>
 		<table>
 			<tr>
 				<td>아이디</td><td><input type="text" name="id" ></td>
@@ -80,21 +81,29 @@
 	<jsp:include page="/views/module/foot.jsp"/>
 	<script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<script type="text/javascript">
-		function onSubmit(){
-			if($('[name="password"]').val() != $('[name="passwordchk"]').val()){
-				alert('암호가 일치하지 않습니다');
-				return false;
-			}
-			if($('[name="id"]').val() == null) {
-				alert('아이디를 입력하세요');
-				return false;
-			}
-			if($('[name="id"]').val() == "") {
-				alert('아이디를 입력하세요');
-				return false;
-			}
-			return true;
+	function onSubmit(){
+		if($('[name="id"]').val() == null) {
+			alert('아이디를 입력하세요');
+			return false;
 		}
+		if($('[name="id"]').val() == "") {
+			alert('아이디를 입력하세요');
+			return false;
+		}
+		if($('[name="password"]').val() == null){
+			alert('암호를 입력하세요');
+			return false;
+		}
+		if($('[name="password"]').val() == ""){
+			alert('암호를 입력하세요');
+			return false;
+		}
+		if($('[name="password"]').val() != $('[name="passwordchk"]').val()){
+			alert('암호가 일치하지 않습니다');
+			return false;
+		}
+		return true;
+	}
 	</script>
 </body>
 </html>

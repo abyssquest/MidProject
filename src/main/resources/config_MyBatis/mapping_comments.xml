@@ -10,9 +10,9 @@
 	<insert id="insert">
 		<![CDATA[
 		insert into comments
-		(seq, imageKey, masterid, content, uploadDate)
+		(num, imageKey, masterid, content, uploadDate)
 		values
-		((select nvl(max(seq), 0)+1 from comments)
+		((select nvl(max(num), 0)+1 from comments)
 		, #{imageKey}
 		, #{masterid}
 		, #{content}
@@ -25,14 +25,23 @@
 		where imageKey=#{imageKey}
 		]]>
 	</select>
+	<select id="selectOne" resultType="comment">
+		<![CDATA[
+		select * from comments
+		where num=#{num}
+		]]>
+	</select>
 	<update id="update">
 		<![CDATA[
-		
+		update comments set
+		content=#{content}
+		where num=#{num}
 		]]>
 	</update>
 	<delete id="delete">
 		<![CDATA[
-		delete from comments where imageKey=#{imageKey}
+		delete from comments
+		where num=#{num}
 		]]>
 	</delete>
 </mapper>

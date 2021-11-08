@@ -5,49 +5,41 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.spring.biz.comment.service.CommentService;
 import com.spring.biz.comment.vo.CommentVO;
 
 @Controller
-@RequestMapping("/comment")
 public class CommentController {
-	
 	@Autowired
-	CommentService commentService;
+	CommentService service;
 	
-	@RequestMapping("/list")
-	@ResponseBody
-	public List<CommentVO> getCommentList(Model model) throws Exception{
-		
-		/*
-		 * List<CommentVO> list = commentService.commentList(vo);
-		 * model.addAttribute("commentList",list);
-		 */
-		 // commentService.selectList(vo);
-		return null;
+	@RequestMapping("insertComment.do")
+	public String insertComment(Model model, CommentVO vo) {
+		service.insert(vo);
+		List<CommentVO> list = service.selectList(vo);
+		model.addAttribute("commentList",list);
+		return "comment/getCommentList";
 	}
 	
-	@RequestMapping("/insert")
-	@ResponseBody
-	private int commentServiceInsert(@RequestParam int seq, @RequestParam String content) throws Exception {
-		
-		CommentVO vo = new CommentVO();
-		vo.setSeq(seq);
-		vo.setContent(content);
-		vo.setMasterid("test");
-		
-		return 0; // commentService.insert(vo);
+	@RequestMapping("getCommentList.do")
+	public String selectCommentList(Model model, CommentVO vo) {
+		List<CommentVO> list = service.selectList(vo);
+		model.addAttribute("commentList",list);
+		return "comment/getCommentList";
 	}
 	
-	@RequestMapping("delete/{imageSeq}")
-	@ResponseBody
-	private int commentServiceDelete(@PathVariable int cno) throws Exception{
-		
-		return 0; // commentService.delete(cno);
+	@RequestMapping("updateComment.do")
+	public String updateComment(Model model, CommentVO vo) {
+		service.update(vo);
+		CommentVO dbVO = service.selectOne(vo);
+		model.addAttribute("comment", dbVO);
+		return "comment/getComment";
+	}
+	
+	@RequestMapping("deleteComment.do")
+	public void deleteComment(CommentVO vo) {
+		service.delete(vo);
 	}
 }

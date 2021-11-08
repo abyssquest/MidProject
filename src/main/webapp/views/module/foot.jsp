@@ -8,9 +8,11 @@
 			width: 100%; height: 108px;
 			position:fixed; bottom: 0px;
 			margin: 0; border:0; padding: 0;
-			padding-left: 400px;
 			color : white;
 			background: rgb(0, 44, 35);
+		}
+		h3 {
+			text-align: center;
 		}
 		/* .font:before{
 			width : 3px;

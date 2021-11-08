@@ -3,18 +3,18 @@ package com.spring.biz.comment.vo;
 import java.util.Date;
 
 public class CommentVO {
-	private int seq;
+	private int num;
 	private int imageKey;
 	private String masterid;
 	private String content;
 	private Date uploadDate;
 
-	public int getSeq() {
-		return seq;
+	public int getNum() {
+		return num;
 	}
 
-	public void setSeq(int seq) {
-		this.seq = seq;
+	public void setNum(int num) {
+		this.num = num;
 	}
 
 	public int getImageKey() {

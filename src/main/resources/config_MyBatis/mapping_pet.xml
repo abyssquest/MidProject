@@ -20,23 +20,20 @@
 	</insert>
 	<select id="selectList" resultType="pet">
 		<![CDATA[
-		select *
-		from pets
+		select * from pets
 		where masterId=#{masterId, jdbcType=VARCHAR}
 		order by petKey desc
 		]]>
 	</select>
 	<select id="selectOne" resultType="pet">
 		<![CDATA[
-		select *
-		from pets
+		select * from pets
 		where petKey=#{petKey}
 		]]>
 	</select>
 	<update id="update">
 		<![CDATA[
-		update pets
-		set
+		update pets set
 		name=#{name}
 		, petImage=#{petImage, jdbcType=VARCHAR}
 		, birthDate=#{birthDate, jdbcType=VARCHAR}

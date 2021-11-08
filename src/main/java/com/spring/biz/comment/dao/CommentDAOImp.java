@@ -24,8 +24,13 @@ public class CommentDAOImp implements CommentDAO{
 	}
 
 	@Override
+	public CommentVO selectOne(CommentVO vo) {
+		return sql.selectOne("CommentDAO.selectOne",vo);
+	}
+	
+	@Override
 	public void update(CommentVO vo) {
-		// sql.update("CommentDAO.update",vo);
+		sql.update("CommentDAO.update",vo);
 	}
 
 	@Override

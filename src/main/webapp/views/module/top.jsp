@@ -16,8 +16,8 @@
 			position: fixed; top: 0px;
 			width: 100%; height: 54px;
 			background: white;
-			border-bottom: 1px solid black;
-			font-size: 50px; font-family: 'Nanum Pen Script', cursive;
+			font-size: 50px;
+			font-family: 'Nanum Pen Script', cursive;
 			text-align: center;
 		}
 		#top1 > a {
@@ -39,6 +39,7 @@
 			position: fixed; top: 55px;
 			width: 100%; height: 54px;
 			background: white;
+			border-top: 1px solid black;
 			border-bottom: 1px solid black;
 			text-align: center;
 		}
@@ -67,14 +68,17 @@
 		}
 		#wrap {
 			position: fixed; top: 110px;
+			overflow: hidden;
 			width: 100%;
 		}
 	</style>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<script type="text/javascript">
-		var wh = window.innerHeight;
-		window.onload = function(){
-			document.getElementById('wrap').style.height = wh - 218;
-		};
+		$(function(){
+			var h = $(window).height() - ($('#top1').height() + $('#top2').height() + $('#footer').height());
+			$('#wrap').css('height', h);
+			$('#map').css('height', h);
+		});
 	</script>
 </head>
 <body>
@@ -101,7 +105,7 @@
 			<li>카페</li>
 			<li>보호소</li>
 			<li>커뮤니티</li>
-			<li><a href="hotel.do">지도 - 호텔 예시</a></li>
+			<li><a href="hotel.do">펜션</a></li>
 			<li><a href="getPetList.do">펫 리스트</a></li>
 			<li><a href="getUserList.do">유저 리스트</a></li>
 		</ul>

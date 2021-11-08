@@ -24,6 +24,18 @@
 			margin: 0 auto;
 		}
 	</style>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script type="text/javascript">
+	$.ajax({
+		type: "POST",
+		url: "comment.do",
+		data: "html",
+		success: function(html){
+			
+		}
+		
+	});
+	</script>
 </head>
 <body>
 	<jsp:include page="/views/module/top.jsp"/>

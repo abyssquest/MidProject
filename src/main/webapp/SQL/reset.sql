@@ -31,7 +31,7 @@ create table imageboard(
 );
 
 create table comments(
-	seq					number(10)		primary key,
+	num					number(10)		primary key,
 	content				varchar(200),
 	imageSeq			number(10),
 	masterid			varchar(100),
