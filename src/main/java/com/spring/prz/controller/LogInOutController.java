@@ -34,7 +34,6 @@ public class LogInOutController {
 		}
 		
 		if ((vo.getPassword() != null) && (vo.getPassword().equals(dbVO.getPassword()))) {
-			System.out.println("로그인 성공");
 			session.setAttribute("id", vo.getId());
 		} else {
 			System.out.println("로그인 실패");

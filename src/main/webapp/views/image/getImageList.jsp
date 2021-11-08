@@ -33,9 +33,6 @@
 				<img src="/biz/upload/image_thumb/${ image.fileName }">
 				</a>
 			</td>
-			<c:if test="${ status.count == 10 }">
-				
-			</c:if>
 		</c:forEach>
 		</tr>
 	</table>
