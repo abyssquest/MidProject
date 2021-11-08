@@ -5,7 +5,7 @@
 <head>
 	<style type="text/css">
 		@import url('https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap');
-		@import url('https://fonts.googleapis.com/css2?family=Gaegu:wght@300;400;700&family=Hi+Melody&display=swap');
+		@import url('https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Hi+Melody&display=swap');
 		html, body {
 			width: 100%; height:100%;
 			margin: 0;
@@ -99,9 +99,11 @@
 			<li>건강</li>
 			<li>병원</li>
 			<li>카페</li>
-			<li><a href="hotel.do">펜션</a></li>
-			<li><a href="getPetList.do">보호소</a></li>
-			<li><a href="getUserList.do">커뮤니티</a></li>
+			<li>보호소</li>
+			<li>커뮤니티</li>
+			<li><a href="hotel.do">지도 - 호텔 예시</a></li>
+			<li><a href="getPetList.do">펫 리스트</a></li>
+			<li><a href="getUserList.do">유저 리스트</a></li>
 		</ul>
 		<div id="log_msg">
 		<%

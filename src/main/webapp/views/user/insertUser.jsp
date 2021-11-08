@@ -1,92 +1,100 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+
 <!DOCTYPE html>
-<html lang="ko">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>회원가입</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
-    <style type="text/css">
-    	
-    	/*멍냥멍냥*/
-    	.logo{
-    		font-size: 60px; font-family: sans-serif;
-    		position: absolute; top:5%; left:25%;
-    	}
-    	
-    	 /* from - div */
-    	#box {width: 300px; height:224px; border-radius:19px;
-    	border-top:27px solid yellow;border-bottom:10px solid yellow;
-    	border-right:10px solid yellow;border-left:10px solid yellow;
-    		/* background:yellow; */ position:absolute; top:47%; left:19%;
-    		z-index: 3;
-    	}
-    	form {
-    		position:absolute; top:10px; left:7px;
-    	}
-    	
-    	/* 버튼 관련 */
-    	.input-group-text{width:90px;}
-    	
-    	.btn-secondary{
-    		background-color:#e9ecef; border-color:#ced4da; color:#495057;
-    		position:absolute; top:135px; left:54px; width:173px;
-    	}
-    	
-    	/* 사진 */
-    	img{
-    		width:98px; 
-    		position:absolute; z-index: 5;
-    		top:35%; left:40%;
-    	}
-    </style>
-  </head>
-  <body>
-  	<jsp:include page="/views/module/top.jsp"/>
-  	<div class="box0" >
-  	  		<div>
-  			<img src="/MidProject/src/main/webapp/source_image/insertDog.png">
-  		</div> 
-  		<div id="box">
-  			<form action="insertUser.do" method="post">
-	  			<div class="input-group input-group-sm mb-2">
-				  <span class="input-group-text" id="inputGroup-sizing-sm">&nbsp;&nbsp;이&nbsp;&nbsp;름&nbsp;&nbsp;</span>
-		  		  <input id="name" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
-				</div>
-				<div class="input-group input-group-sm mb-2">
-				  <span class="input-group-text" id="inputGroup-sizing-sm">&nbsp;아이디&nbsp;&nbsp;</span>
-		  		  <input id="id" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
-				</div>
-				<div class="input-group input-group-sm mb-2">
-				  <span class="input-group-text" id="inputGroup-sizing-sm">비밀번호</span>
-		  		  <input id="password" type="password" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
-				</div>
-				<button type="button" class="btn btn-secondary" type="submit">회원가입</button>
-  			</form>
-  		</div>
-  	</div>
-  
-  
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
-    <jsp:include page="/views/module/foot.jsp"/>
-  </body>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>회원가입</title>
+	<style type="text/css">
+		#wrap {
+			background-image: url('https://images.unsplash.com/photo-1546238232-20216dec9f72?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1768&q=80');
+			background-size: cover;
+			background-position: 50% 75%;
+		}
+		h2 {
+			text-align: center;
+			color: white;
+			font-size: 44px;
+			font-family: "Gamja Flower";
+			margin: 20px auto;
+		}
+		table{
+			width: 500px; height: 600px;
+			padding: 20px 25px;
+			margin: 10px auto;
+			border-radius: 20px;
+			border: 10px solid lightgray;
+			background-image: linear-gradient(#ffffff, #ffffff),
+			linear-gradient(135deg, lightgray, red, orange, yellow, green, blue, purple);
+			background-origin: border-box;
+			background-clip: padding-box, border-box;
+			transition: 10s;
+		}
+		table:hover { border-color: transparent; }
+		tr > td:first-child {
+			font-weight: bolder;
+			text-align: center;
+			width: 120px; height: 20px;
+		}
+		input[type=text], input[type=password], input[type=email] {
+				display: block;
+				width: 95%; height: 30px;
+				text-align: center;
+				font: 1.2em bold;
+				border-style: none;
+				outline: none;
+				border-bottom-style: double;
+				margin-bottom: 5px;
+			}
+	</style>
+</head>
+<body>
+	<jsp:include page="/views/module/top.jsp"/>
+	<h2>회원가입</h2>
+	<form action="insertUser.do" method="post" enctype="multipart/form-data" onsubmit="return onSubmit()">
+		<table>
+			<tr>
+				<td>아이디</td><td><input type="text" name="id" ></td>
+			</tr>
+			<tr>
+				<td>패스워드</td><td><input type="password" name="password"></td>
+			</tr>
+			<tr>
+				<td>패스워드 확인</td><td><input type="password" name="passwordchk"></td>
+			</tr>
+			<tr>
+				<td>이름</td><td><input type="text" name="name"></td>
+			</tr>
+			<tr>
+				<td>이메일</td><td><input type="email" name="email"></td>
+			</tr>
+			<tr>
+				<td>유저사진</td><td><input type="file" name="uploadFile"></td>
+			</tr>
+			<tr>
+				<td rowspan="2"><input type="submit" value="회원가입"></td>
+			</tr>
+		</table>
+		<br>
+	</form>
+	<jsp:include page="/views/module/foot.jsp"/>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script type="text/javascript">
+		function onSubmit(){
+			if($('[name="password"]').val() != $('[name="passwordchk"]').val()){
+				alert('암호가 일치하지 않습니다');
+				return false;
+			}
+			if($('[name="id"]').val() == null) {
+				alert('아이디를 입력하세요');
+				return false;
+			}
+			if($('[name="id"]').val() == "") {
+				alert('아이디를 입력하세요');
+				return false;
+			}
+			return true;
+		}
+	</script>
+</body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -1,6 +1,9 @@
 insert into member (id, password, name, profileImage, email, joinDate)
 values ('admin', 'admin', '관리자', 'profile01.jpg', 'email@email.com', sysdate);
 
+insert into member (id, password, name, profileImage, email, joinDate)
+values ('test', 'test', '가입자', 'profile02.jpg', 'getset@email.com', sysdate);
+
 insert into imageboard (seq, masterId, title, content, uploadDate, fileName)
 values ((select nvl(max(seq), 0)+1 from imageboard), 'admin', '01', '더미01', sysdate, 'dummy01.jpg');
 
