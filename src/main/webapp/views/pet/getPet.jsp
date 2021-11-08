@@ -7,7 +7,7 @@
 	<title>getPet</title>
 </head>
 <body>
-	<jsp:include page="/views/module/log.jsp"/>
+	<jsp:include page="/views/module/top.jsp"/>
 	
 	getPet 페이지
 	

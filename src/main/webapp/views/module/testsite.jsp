@@ -12,10 +12,7 @@
 </head>
 <body>
 	<div id="test">
-	<a href="index.do">인덱스 창</a><br>
-	<br>
-	테스트 비지니스 로직<br>
-	<a href="getImageList.do">이미지 목록</a><br>
+	
 	<a href="getUserList.do">유저 목록</a><br>
 	<a href="getPetList.do">펫 목록</a><br>
 	<br>

@@ -14,7 +14,7 @@
 	</style>
 </head>
 <body>
-	<jsp:include page="/views/module/log.jsp"/>
+	<jsp:include page="/views/module/top.jsp"/>
 	
 	<p><a href="javascript:history.go(-1)">뒤로 가기</a></p>
 	<p>임시 데이터로 표시한 지도</p>
@@ -77,5 +77,6 @@
 			infowindow.open(map, marker); //인포 윈도우 지도에 표시
 		}
 	</script>
+	<jsp:include page="/views/module/foot.jsp"/>
 </body>
 </html>

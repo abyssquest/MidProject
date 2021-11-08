@@ -11,7 +11,7 @@
 	</style>
 </head>
 <body>
-	<jsp:include page="/views/module/log.jsp"/>
+	<jsp:include page="/views/module/top.jsp"/>
 	
 	<p>펫 목록 내용</p>
 	<table>
