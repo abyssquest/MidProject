@@ -66,10 +66,16 @@
 			font-size: 20px;
 		}
 		#wrap {
-			position: fixed; top: 120px;
+			position: fixed; top: 110px;
 			width: 100%;
 		}
 	</style>
+	<script type="text/javascript">
+		var wh = window.innerHeight;
+		window.onload = function(){
+			document.getElementById('wrap').style.height = wh - 218;
+		};
+	</script>
 </head>
 <body>
 	<div id="top1">
@@ -93,7 +99,7 @@
 			<li>건강</li>
 			<li>병원</li>
 			<li>카페</li>
-			<li>펜션</li>
+			<li><a href="hotel.do">펜션</a></li>
 			<li><a href="getPetList.do">보호소</a></li>
 			<li><a href="getUserList.do">커뮤니티</a></li>
 		</ul>

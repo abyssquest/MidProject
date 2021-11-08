@@ -10,4 +10,9 @@ public class CommonController {
 	public String index() {
 		return "toIndex";
 	}
+	
+	@RequestMapping("hotel.do")
+	public String hotel() {
+		return "map/map-hotel";
+	}
 }
