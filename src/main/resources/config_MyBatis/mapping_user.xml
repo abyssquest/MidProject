@@ -51,6 +51,13 @@
 		where id=#{id}
 		]]>
 	</update>
+	<update id="updatePw">
+		<![CDATA[
+		update member set
+		password=#{password, jdbcType=VARCHAR},
+		where id=#{id}
+		]]>
+	</update>
 	<delete id="delete">
 		<![CDATA[
 		delete from member

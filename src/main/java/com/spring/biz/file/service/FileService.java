@@ -75,7 +75,8 @@ public class FileService {
 		HttpSession session = request.getSession();
 		
 		if(!file.isEmpty()) {
-			fileName = vo.getMasterId() + "-" + Integer.toString(vo.getPetKey()) + "." + getExt(file);
+			fileName = vo.getMasterId() + "-"
+					+ new SimpleDateFormat("yyyyMMdd-HHmmss").format(new Date()) + "." + getExt(file);
 			file.transferTo(new File(getDir(vo, session) + fileName));
 		}
 		

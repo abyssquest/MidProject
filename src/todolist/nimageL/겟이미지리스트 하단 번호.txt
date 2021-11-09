@@ -1,0 +1,85 @@
+<%
+
+request.setCharacterEncoding( "utf-8" );
+	int cpage = 1;
+	if ( request.getParameter( "cpage" ) != null && !request.getParameter( "cpage" ).equals("") ) {
+		cpage = Integer.parseInt( request.getParameter( "cpage" ) );
+	}
+	
+	//데이터 개수 고정하기
+	int recordPerPage = 10;
+	int totalRecord = 0;
+	
+	//전체 페이지 개수
+	int totalPage = 1;
+	
+	//보여질 페이지 개수
+	int blockPerPage = 5;
+
+	Connection conn = null;
+	PreparedStatement pstmt = null;
+	ResultSet rs = null;
+	
+	
+	StringBuffer sbHtml = new StringBuffer();
+
+%>
+
+<%	
+	//페이지 5개로 만들 때 시작페이지와 끝 페이지 선언
+	int startBlock = ( ( cpage-1 ) / blockPerPage ) * blockPerPage + 1;
+	int endBlock = ( ( cpage-1 ) / blockPerPage ) * blockPerPage + blockPerPage;
+	if ( endBlock >= totalPage ) {
+		endBlock = totalPage;
+	}
+%>
+
+
+<%	
+	//앞에 5개 페이지 넘어가기
+	if ( startBlock == 1 ) {
+		out.println( " <span><a>&lt;&lt;</a></span> " );
+	} else {
+		out.println( " <span><a href='board_list1.jsp?cpage=" + (startBlock-blockPerPage) + "'>&lt;&lt;</a></span> " );
+	}
+	out.println( " &nbsp; " );
+	
+	//이전 페이지로 넘어가기
+	if ( cpage == 1 ) {
+		out.println( "<span><a href=''>&lt;</a></span>" );
+	} else {
+		out.println( "<span><a href='board_list1.jsp?cpage=" + (cpage-1) + "'>&lt;</a></span>" );
+	}
+	
+	//전체 페이지 출력 및 현재 페이지 표시
+	out.println( "&nbsp;&nbsp;" );
+	for ( int i=startBlock; i<=endBlock; i++ ) {
+		if ( cpage == i ) {
+			out.println( "<span>[" + i + "]</span>" );
+		} else {
+			out.println( "<span><a href='board_list1.jsp?cpage=" + i + "'>" + i + "</a></span>" );
+		}
+	}
+	out.println( " &nbsp;&nbsp; " );
+	
+	//다음 페이지로 넘어가기
+	if ( cpage == totalPage ) {
+		out.println( "<span><a href=''>&gt;</a></span>" );
+	} else {
+		out.println( "<span><a href='board_list1.jsp?cpage=" + (cpage+1) + "'>&gt;</a></span>" );
+	}
+	out.println( " &nbsp; " );
+	
+	//뒤 5개 페이지 넘어가기
+	if ( endBlock == totalPage ) {
+		out.println( " <span><a>&gt;&gt;</a></span> " );
+	} else {
+		out.println( " <span><a href='board_list1.jsp?cpage=" + (startBlock+blockPerPage) + "'>&gt;&gt;</a></span> " );
+	}
+	//out.println( "<span><a href='board_list1.jsp?cpage=" + totalPage + "'>&gt;&gt;</a></span>" );
+%>				
+			</div>
+		</div>
+		<!--//페이지넘버-->
+</body>
+</html>

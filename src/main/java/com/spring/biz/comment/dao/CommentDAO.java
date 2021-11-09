@@ -9,5 +9,6 @@ public interface CommentDAO {
 	public List<CommentVO> selectList(CommentVO vo);
 	public CommentVO selectOne(CommentVO vo);
 	public void update(CommentVO vo);
+	public void updatePw(CommentVO vo);
 	public void delete(CommentVO vo);
 }

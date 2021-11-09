@@ -19,14 +19,12 @@
 			<th>이름</th>
 			<th>주인id</th>
 			<th>생일</th>
-			<th>사진</th>
 		</tr>
 		<c:forEach items="${ petList }" var="pet">
 			<tr>
 				<td><a href="getPet.do?petKey=${ pet.petKey }">${ pet.name }</a></td>
 				<td>${ pet.masterId }</td>
 				<td>${ pet.birthDate }</td>
-				<td><img src="/biz/upload/profile_pet/${ pet.petImage }" style=width:400px;height:auto;></td>
 			</tr>
 		</c:forEach>
 	</table>

@@ -44,42 +44,120 @@
 	<script>
 	var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
 	    mapOption = { 
-	        center: new kakao.maps.LatLng(38.07404486309826, 128.57291082926875), // 지도의 중심좌표
+	        center: new kakao.maps.LatLng(38.04577339923903, 128.5761462353454), // 지도의 중심좌표
 	        level: 7 // 지도의 확대 레벨
 	    };
 	
 	var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
 	
+	// 펜션 마커
 	var imageSrc = '/biz/views/source_image/marker_dog.png', // 마커이미지의 주소입니다    
 	    imageSize = new kakao.maps.Size(53, 55), // 마커이미지의 크기입니다
 	    imageOption = {offset: new kakao.maps.Point(27, 69)}; // 마커이미지의 옵션입니다. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정합니다.
-	      
-	// 마커의 이미지정보를 가지고 있는 마커이미지를 생성합니다
-	var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imageOption),
-	    markerPosition = new kakao.maps.LatLng(38.09094486309826, 128.57291082926875); // 마커가 표시될 위치입니다
 	
-	// 마커를 생성합니다
-	var marker = new kakao.maps.Marker({
-	    position: markerPosition, 
+	// 동물병원 마커
+   var imageSrc2 = '/biz/views/source_image/marker_cross.png'; // 마커이미지의 주소입니다
+   var imageSize2 = new kakao.maps.Size(53, 55)
+   var imageOption2 = {offset: new kakao.maps.Point(27, 65)};
+	    
+	// 마커의 이미지정보를 가지고 있는 마커이미지를 생성합니다
+	/* var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imageOption),
+	    markerPosition1 = new kakao.maps.LatLng(38.069258179432, 128.56786266415); */ // 마커가 표시될 위치입니다
+	
+	    var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imageOption);
+	    var markerImage2 = new kakao.maps.MarkerImage(imageSrc2, imageSize2, imageOption2);
+	   
+	    
+	// 강원도 펜션 마커 1 대명동물병원
+	var marker1 = new kakao.maps.Marker({
+	    position: new kakao.maps.LatLng(38.07375191469162, 128.6201507115621), 
+	    image: markerImage2, // 마커이미지 설정
+		});
+	
+	// 강원도 펜션 마커 2 강이네 하우스
+	var marker2 = new kakao.maps.Marker({
+	    position: new kakao.maps.LatLng(38.067031184080975, 128.58334781139502), 
 	    image: markerImage, // 마커이미지 설정
-		});    
+		});
+	
+	// 강원도 펜션 마커 3 발렌타인 애견펜션
+	var marker3 = new kakao.maps.Marker({
+	    position: new kakao.maps.LatLng(38.0469154968879, 128.61436475387362), 
+	    image: markerImage, // 마커이미지 설정
+		});
+	
+	// 강원도 펜션 마커 4 양양 빈티지 하우스
+	var marker4 = new kakao.maps.Marker({
+	    position: new kakao.maps.LatLng(38.078818850321454, 128.6715609949088), 
+	    image: markerImage, // 마커이미지 설정
+		});
+	
+	// 강원도 펜션 마커 5 어린왕자 애견펜션
+	var marker5 = new kakao.maps.Marker({
+	    position: new kakao.maps.LatLng(38.058173407751056, 128.68250343354484), 
+	    image: markerImage, // 마커이미지 설정
+		});
 	
 	// 마커가 지도 위에 표시되도록 설정합니다
-	marker.setMap(map);
+	marker1.setMap(map);
+	marker2.setMap(map);
+	marker3.setMap(map);
+	marker4.setMap(map);
+	marker5.setMap(map);
 	
 	//커스텀 오버레이에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
-	var content = '<div class="customoverlay">' +
-	    '    <span class="title">멍냥 펜션</span>' +
-	    '</div>';
+	/* var content = '<div class="customoverlay">' +
+	    '    <span class="title">꼬로몽 애견펜션</span>' +
+	    '</div>'; */
 	
 	// 커스텀 오버레이가 표시될 위치입니다 
-	var position = new kakao.maps.LatLng(38.09094486309826, 128.57291082926875);  
+	/* var position = new kakao.maps.LatLng(38.069258179432, 128.56786266415); */  
 	
-	// 커스텀 오버레이를 생성합니다
-	var customOverlay = new kakao.maps.CustomOverlay({
+	// 커스텀 오버레이를 생성합니다 - 1번 대명 동물병원
+	var customOverlay1 = new kakao.maps.CustomOverlay({//
 	    map: map,
-	    position: position,
-	    content: content,
+	    position: new kakao.maps.LatLng(38.07375191469162, 128.6201507115621),
+	    content: '<div class="customoverlay">' +
+	    '    <span class="title">대명동물병원</span>' +
+	    '</div>',
+	    yAnchor: 1 
+	});
+	// 커스텀 오버레이 -2번 강이네 하우스
+	var customOverlay2 = new kakao.maps.CustomOverlay({
+	    map: map,
+	    position: new kakao.maps.LatLng(38.067039630785054, 128.58334781139502),
+	    content: '<div class="customoverlay">' +
+	    '    <span class="title">강이네 하우스</span>' +
+	    '</div>',
+	    yAnchor: 1 
+	});
+	// 커스텀 오버레이 - 3번 발렌타인
+	var customOverlay3 = new kakao.maps.CustomOverlay({
+	    map: map,
+	    position: new kakao.maps.LatLng(38.0469154968879, 128.61436475387362),
+	    content: '<div class="customoverlay">' +
+	    '    <span class="title">발렌타인 애견펜션</span>' +
+	    '</div>',
+	    yAnchor: 1 
+	});
+	
+	// 커스텀 오버레이 - 4번 양양 빈티지 하우스
+	var customOverlay4 = new kakao.maps.CustomOverlay({
+	    map: map,
+	    position: new kakao.maps.LatLng(38.078818850321454, 128.67152880840032),
+	    content: '<div class="customoverlay">' +
+	    '    <span class="title">양양 빈티지 하우스</span>' +
+	    '</div>',
+	    yAnchor: 1 
+	});
+	
+	// 커스텀 오버레이 - 5번 어린왕자 애견펜션
+	var customOverlay5 = new kakao.maps.CustomOverlay({
+	    map: map,
+	    position: new kakao.maps.LatLng(38.058173407751056, 128.68250343354484),
+	    content: '<div class="customoverlay">' +
+	    '    <span class="title">어린왕자 애견 펜션</span>' +
+	    '</div>',
 	    yAnchor: 1 
 	});
 	</script>
