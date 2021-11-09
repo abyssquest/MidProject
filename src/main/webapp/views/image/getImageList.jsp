@@ -41,7 +41,7 @@
 		
 		<c:set var="maxCount" value="${ fn:length(imageList) }"/>
 		<fmt:parseNumber var="maxPage" value="${ (maxCount/10) + 1 }" integerOnly="true"/>
-		<c:set var="start" value="${ page * 10 - 9 }"/>
+		<c:set var="start" value="${ 0 + (page - 1) * 10 }"/>
 		<c:forEach items="${ imageList }" var="image" begin="${ start }" end="${ start + 9 }" step="1" varStatus="status">
 			<c:if test="${ status.count == 6 }">
 				</tr><tr>
