@@ -26,6 +26,11 @@
 	</style>
 </head>
 <body>
+	<%
+	int totalRecord = response.getAttribute("imageList");
+	int recordPerPage = 10;
+	
+	%>
 	<jsp:include page="/views/module/top.jsp"/>
 	<div id="wrap">
 		<table class="img_wrap">
