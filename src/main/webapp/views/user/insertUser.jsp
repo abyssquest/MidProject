@@ -14,14 +14,13 @@
 		h2 {
 			text-align: center;
 			color: white;
-			font-size: 32px;
+			font-size: 40px;
 			font-family: "Gamja Flower";
-			margin: 20px auto;
+			margin: 50px auto;
 		}
 		table{
-			width: 500px; height: 600px;
-			padding: 20px 25px;
-			margin: 10px auto;
+			width: 450px; height: 420px;
+			padding: 10px; margin: 20px auto;
 			border-radius: 20px;
 			border: 10px solid lightgray;
 			background-image: linear-gradient(#ffffff, #ffffff),
@@ -34,7 +33,10 @@
 		tr > td:first-child {
 			font-weight: bolder;
 			text-align: center;
-			width: 120px; height: 50px;
+			width: 135px; height: 50px;
+		}
+		tr > td:last-child {
+			
 		}
 		input[type=text], input[type=password], input[type=email] {
 				display: block;
@@ -45,38 +47,75 @@
 				outline: none;
 				border-bottom-style: double;
 				margin-bottom: 5px;
-			}
+		}
+		#submit { 
+			width: 0; height: 0;
+			padding: 0; margin: 0;
+			border: none;
+			outline: none;
+		}
+		.button {
+			display: inline-block;
+			padding: 8px 15px;
+			margin: 5px 2px;
+			border: none;
+			border-radius: 15px;
+			text-align: center;
+			background-color: #e0e0e0;
+			transition: 3000;
+		}
+		.button:hover {
+			color: #ffffff;
+			background-color: #a660d4b2;
+		}
+		input:checked+.button {
+			background-color: #ffbd7f;
+			color: white;
+		}
 	</style>
+	<script type="text/javascript">
+	$(function(){
+		var tableTop = ($(window).height() - $('table').height()) / 2;
+		$('table').css('top', tableTop);
+	});
+	</script>
 </head>
 <body>
 	<jsp:include page="/views/module/top.jsp"/>
 	<h2>회원가입</h2>
 	<form action="insertUser.do" method="post" enctype="multipart/form-data" onsubmit="return onSubmit()">
-		<h2>회원가입</h2>
-		<table>
-			<tr>
-				<td>아이디</td><td><input type="text" name="id" ></td>
-			</tr>
-			<tr>
-				<td>패스워드</td><td><input type="password" name="password"></td>
-			</tr>
-			<tr>
-				<td>패스워드 확인</td><td><input type="password" name="passwordchk"></td>
-			</tr>
-			<tr>
-				<td>이름</td><td><input type="text" name="name"></td>
-			</tr>
-			<tr>
-				<td>이메일</td><td><input type="email" name="email"></td>
-			</tr>
-			<tr>
-				<td>유저사진</td><td><input type="file" name="uploadFile"></td>
-			</tr>
-			<tr>
-				<td rowspan="2"><input type="submit" value="회원가입"></td>
-			</tr>
-		</table>
-		<br>
+	<table>
+		<tr>
+			<td>아이디</td>
+			<td><input type="text" name="id" ></td>
+		</tr>
+		<tr>
+			<td>패스워드</td><td>
+			<input type="password" name="password"></td>
+		</tr>
+		<tr>
+			<td>패스워드 확인</td>
+			<td><input type="password" name="passwordchk"></td>
+		</tr>
+		<tr>
+			<td>이름</td>
+			<td><input type="text" name="name"></td>
+		</tr>
+		<tr>
+			<td>이메일</td>
+			<td><input type="email" name="email"></td>
+		</tr>
+		<tr>
+			<td>유저사진</td>
+			<td><input type="file" name="uploadFile"></td>
+		</tr>
+		<tr>
+			<td colspan="2">
+			<input type="submit" name="" id="submit">
+			<label for="submit" class="button">등록하기</label>
+			</td>
+		</tr>
+	</table>
 	</form>
 	<jsp:include page="/views/module/foot.jsp"/>
 	<script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
