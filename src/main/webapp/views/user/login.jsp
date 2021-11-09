@@ -33,7 +33,7 @@
 	tr > td:first-child {
 		font-weight: bolder;
 		text-align: center;
-		width: 135px; height: 50px;
+		width: 135px; height: 30px;
 	}
 	tr:last-child > td {
 		text-align: center;

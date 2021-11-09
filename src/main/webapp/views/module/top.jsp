@@ -4,8 +4,7 @@
 <html>
 <head>
 	<style type="text/css">
-		@import url('https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap');
-		@import url('https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Hi+Melody&display=swap');
+		@import url('https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Hi+Melody&family=Nanum+Gothic+Coding:wght@400;700&family=Nanum+Pen+Script&display=swap');
 		html, body {
 			width: 100%; height:100%;
 			margin: 0;
@@ -106,7 +105,6 @@
 			<li>보호소</li>
 			<li>커뮤니티</li>
 			<li><a href="hotel.do">펜션</a></li>
-			<li><a href="getPetList.do">펫 리스트</a></li>
 			<li><a href="getUserList.do">유저 리스트</a></li>
 		</ul>
 		<div id="log_msg">
