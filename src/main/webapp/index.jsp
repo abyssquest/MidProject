@@ -5,6 +5,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>홈 페이지</title>
+
 </head>
 <body>
 	<jsp:include page="/views/module/top.jsp"/>

@@ -32,6 +32,11 @@ public class UserServiceImp implements UserService {
 	public void update(UserVO vo) {
 		dao.update(vo);
 	}
+	
+	@Override
+	public void updatePw(UserVO vo) {
+		dao.updatePw(vo);
+	}
 
 	@Override
 	public void delete(UserVO vo) {

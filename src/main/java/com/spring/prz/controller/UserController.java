@@ -53,7 +53,7 @@ public class UserController {
 		UserVO user = service.selectOne(vo);
 		model.addAttribute("user", user);
 		
-		return "user/getUser";
+		return "user/updateContent";
 	}
 	
 	// 계정 수정 폼 페이지
@@ -87,5 +87,12 @@ public class UserController {
 		service.delete(vo);
 		request.getSession().invalidate();
 		return "toIndex";
+	}
+	
+	// 비밀번호 수정 페이지에서 새로운 비밀번호 등록. [ok]
+	@RequestMapping(value = "/updatePw.do", method = RequestMethod.POST)
+	public String UpdatePw(UserVO vo) {
+		service.updatePw(vo);
+		return "redirect:views/index.jsp";
 	}
 }

@@ -32,6 +32,11 @@ public class UserDAOImp implements UserDAO {
 	public void update(UserVO vo) {
 		sql.update("UserDAO.update", vo);
 	}
+	
+	@Override
+	public void updatePw(UserVO vo) {
+		sql.update("UserDAO.updatePw", vo);
+	}
 
 	@Override
 	public void delete(UserVO vo) {
