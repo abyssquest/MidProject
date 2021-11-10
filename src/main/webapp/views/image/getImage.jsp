@@ -8,13 +8,13 @@
 
 	<style type="text/css">
 		#image {
-			margin: 0 auto;
+			margin: 10px auto;
 			border: 1px black solid;
 		}
 		.image_masterId { font-weight: bold; }
 		tr > td > img {
 			object-fit: cover;
-			width: 800px; height: 800px;
+			width: 500px; height: 500px;
 		}
 		.image_uploadDate { text-align : right; }
 		.image_title { font-weight: bold; }
@@ -57,30 +57,30 @@
 			<td class="image_content">${ image.content }</td>
 		</tr>
 	</table>
-
+<%--
 	<table id="commentsWrap">
-					<%-- <c:forEach items="${ commentList }" var="comment">
-						<form action="updateComment.do" method="post"> --%>
+					<c:forEach items="${ commentList }" var="comment">
+						<form action="updateComment.do" method="post">
 		<tr class="commentBox1">
 			<td colspan="2">
-				<span class="comment_masterId">댓글 주인 id<%-- ${ comment.masterId } --%></span>
-				<span class="comment_content">댓글 내용<%-- ${ comment.content } --%></span>
+				<span class="comment_masterId">댓글 주인 id${ comment.masterId }</span>
+				<span class="comment_content">댓글 내용${ comment.content }</span>
 			</td>
 		</tr>
 		<tr class="commentBox2">
-			<td><%-- ${ comment.uploadDate } --%>댓글 올라간 날짜</td>
+			<td> ${ comment.uploadDate } 댓글 올라간 날짜</td>
 			<td>
-				<%-- <c:if test="${ comment.masterId == id }"> --%>
+				 <c:if test="${ comment.masterId == id }"> 
 					<input type="submit" value="수정">
-				<%-- </c:if> --%>
+				</c:if> 
 			</td>
 		</tr>
-						<%-- </form>
-					</c:forEach> --%>
+						</form>
+					</c:forEach> 
 		<tr>
 			<td>업데이트 버튼(#request) 감추기 버튼</td>
 		</tr>
-	</table>
+	</table>--%>
 	
 	<script>
 	// 'request'라는 id를 가진 버튼 클릭 시 실행.
@@ -154,9 +154,9 @@
 
 
 	
-	<p><a href="getImageList.do">이미지 목록</a></p>
+	<p style="text-align: center;"><a href="getImageList.do">이미지 목록</a></p>
 	
-	<p><a href="deleteImage.do?seq=${ image.seq }">이미지 삭제</a></p>
+	<p style="text-align: center;"><a href="deleteImage.do?seq=${ image.seq }">이미지 삭제</a></p>
 	
 	<jsp:include page="/views/module/foot.jsp"/>
 	
