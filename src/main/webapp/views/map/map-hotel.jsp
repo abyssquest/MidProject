@@ -40,7 +40,7 @@
 <body>
 	<jsp:include page="/views/module/top.jsp"/>
 	<div id="map"></div>
-	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=d9be443f72f3a354b8ce4a816be23ce8"></script>
+	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=e6bc93df7e7e40fee18525f23ec8fe22"></script>
 	<script>
 	var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
 	    mapOption = { 
@@ -104,14 +104,6 @@
 	marker3.setMap(map);
 	marker4.setMap(map);
 	marker5.setMap(map);
-	
-	//커스텀 오버레이에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
-	/* var content = '<div class="customoverlay">' +
-	    '    <span class="title">꼬로몽 애견펜션</span>' +
-	    '</div>'; */
-	
-	// 커스텀 오버레이가 표시될 위치입니다 
-	/* var position = new kakao.maps.LatLng(38.069258179432, 128.56786266415); */  
 	
 	// 커스텀 오버레이를 생성합니다 - 1번 대명 동물병원
 	var customOverlay1 = new kakao.maps.CustomOverlay({//
