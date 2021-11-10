@@ -96,8 +96,9 @@ public class UserController {
 	
 	// 비밀번호 수정 페이지에서 새로운 비밀번호 등록. [ok]
 	@RequestMapping(value = "updatePw.do", method = RequestMethod.POST)
-	public String UpdatePwProc(UserVO vo) {
+	public String UpdatePwProc(UserVO vo, HttpSession session) {
+		vo.setId((String)session.getAttribute("id"));
 		service.updatePw(vo);
-		return "toIndex";
+		return "redirect:getUser.do";
 	}
 }

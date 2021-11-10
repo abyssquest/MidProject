@@ -54,7 +54,7 @@
 	<update id="updatePw">
 		<![CDATA[
 		update member set
-		password=#{password, jdbcType=VARCHAR},
+		password=#{password, jdbcType=VARCHAR}
 		where id=#{id}
 		]]>
 	</update>

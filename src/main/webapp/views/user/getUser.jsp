@@ -90,12 +90,6 @@
 						</td>
 					</tr>
 					<tr class = "Change">
-						<td class = "font">기본 정보 설정</td>
-						<td class = "font_content">이름과 프로필 사진 , 이메일을 설정하는 페이지입니다.
-							<a href="updateUser.do"><input type="button" class = "botton" value="이동"></a>
-						</td>
-					</tr>
-					<tr class = "Change">
 						<td colspan="2"><button id="go-back">뒤로 가기</button></td>
 					</tr>
 				</table>

@@ -105,7 +105,7 @@
 			<li>보호소</li>
 			<li>커뮤니티</li>
 			<li><a href="hotel.do">펜션</a></li>
-			<li><a href="getUserList.do">유저 리스트</a></li>
+			
 		</ul>
 		<div id="log_msg">
 		<%

@@ -7,6 +7,6 @@
 	<title>toIndex</title>
 </head>
 <body>
-	<% response.sendRedirect("index.jsp"); %>
+	<% response.sendRedirect("getImageList.do"); %>
 </body>
 </html>
