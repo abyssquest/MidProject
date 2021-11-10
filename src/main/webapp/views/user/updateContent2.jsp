@@ -11,7 +11,6 @@
 	<jsp:include page="/views/module/top.jsp"/>
 		<div id="profile">
 			<div class = "myPageHeader">
-			<br>
 				<h2>내 정보 수정</h2>
 			</div>
 
@@ -19,14 +18,14 @@
 				
 				<div class = "Change">
 					<b class = "font">이름</b><br><br><br>
-					<b class = "font_content">설정된 이름 : </b><b class = "font font_height"> ${ user.name }</b><br><br>
-					<b class = "font_content">수정할 이름 : </b><input type="text" name="name" class = "input">
+					<b class = "font_content">현재 설정된 이름 : </b><b class = "font font_height"> ${ user.name }</b><br><br>
+					<b class = "font_content">수정 할 이름 : </b><input type="text" name="name" class = "input">
 				</div>
 
 				<div class = "Change">
 					<b class = "font">프로필 사진</b><br>
-	 				<input type="file" id="upload_file" accept="image/*" required="true" value="업로드">
-	 				<img src="/biz/views/source_image/${ user.profileImage}" id="img_section" style="width: 100px; height: 100px;">
+	 				<input type="file" id="upload_file" accept="image/*" required=true value="업로드">
+	 				<img src="biz/views/source_image/${ user.profileImage}" id="img_section" style="width: 100px; height: 100px;">
 					<script>
 					       const reader = new FileReader();
 					       reader.onload = (readerEvent) => {
@@ -42,8 +41,8 @@
 
 				<div class = "Change">
 					<b class = "font">이메일</b><br><br><br>
-					<b class = "font_content">설정된 email : </b><b class = "font font_height">${ user.email }</b><br><br>
-					<b class = "font_content">수정할 email : </b><input type="text" name="name" class = "input">
+					<b class = "font_content">현제 설정된 email : </b><b class = "font font_height">${ user.email }</b> <br><br>
+					<b class = "font_content">수정 할 이름 : </b><input type="text" name="name" class = "input">
 				</div>
 
 				<div id = "bottom">

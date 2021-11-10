@@ -32,11 +32,6 @@ public class CommentDAOImp implements CommentDAO{
 	public void update(CommentVO vo) {
 		sql.update("CommentDAO.update",vo);
 	}
-	
-	@Override
-	public void updatePw(CommentVO vo) {
-		sql.update("CommentDAO.updatePw",vo);
-	}
 
 	@Override
 	public void delete(CommentVO vo) {

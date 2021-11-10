@@ -26,7 +26,7 @@ public class UserController {
 	
 	@RequestMapping(value = "insertUser.do", method = RequestMethod.GET)
 	public String insertUserForm() {
-		return "user/insertUser";
+		return "user/insertUser2";
 	}
 	
 	@RequestMapping(value = "insertUser.do", method = RequestMethod.POST)
@@ -53,7 +53,7 @@ public class UserController {
 		UserVO user = service.selectOne(vo);
 		model.addAttribute("user", user);
 		
-		return "user/updateContent";
+		return "user/getUser";
 	}
 	
 	// 계정 수정 폼 페이지
@@ -89,10 +89,15 @@ public class UserController {
 		return "toIndex";
 	}
 	
+	@RequestMapping(value = "updatePw.do", method = RequestMethod.GET)
+	public String UpdatePwForm(UserVO vo) {
+		return "user/updatePassword";
+	}
+	
 	// 비밀번호 수정 페이지에서 새로운 비밀번호 등록. [ok]
-	@RequestMapping(value = "/updatePw.do", method = RequestMethod.POST)
-	public String UpdatePw(UserVO vo) {
+	@RequestMapping(value = "updatePw.do", method = RequestMethod.POST)
+	public String UpdatePwProc(UserVO vo) {
 		service.updatePw(vo);
-		return "redirect:views/index.jsp";
+		return "toIndex";
 	}
 }

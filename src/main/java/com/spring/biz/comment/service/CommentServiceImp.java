@@ -32,11 +32,6 @@ public class CommentServiceImp implements CommentService{
 	public void update(CommentVO vo) {
 		dao.update(vo);
 	}
-	
-	@Override
-	public void updatePw(CommentVO vo) {
-		dao.updatePw(vo);
-	}
 
 	@Override
 	public void delete(CommentVO vo) {

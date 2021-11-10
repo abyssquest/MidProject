@@ -5,13 +5,13 @@
 <head>
 <meta charset="UTF-8">
 <title>새로운 비밀번호 설정</title>
-<link href="updatePassword.css" rel="stylesheet" >
+<link href="updateContent.css" rel="stylesheet" >
 <script type="text/javascript">
 
 	function checkPw(){
 		var pw = document.getElementById("password").value;
 		var check = document.getElementById("checkPassword").value;
-		 if(pw == check && pw != ""){
+		 if(pw == check){
 			alert("비밀번호가 일치합니다.");
 			document.getElementById("checkPass").innerHTML = "확인되었습니다.";
 			document.getElementById("checkPass").style.color="green";
