@@ -1,17 +1,59 @@
-# Abyss_Custom
+## Abyss_Custom ##
 Servers/
 target/
 
-##### ####### ######### #####
-##### Backup.gitignore #####
+### #### ###
+### JAVA ###
+
+# Compiled class file
+*.class
+
+# Log file
+*.log
+
+# BlueJ files
+*.ctxt
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Package Files #
+*.jar
+*.war
+*.nar
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
+
+### GLOBAL IGNORE ###
+
+### ###### ###
+### Backup ###
 *.bak
 *.gho
 *.ori
 *.orig
 *.tmp
 
-##### ####### ######### #####
-##### Eclipse.gitignore #####
+### ###### ###
+### VSCode ###
+
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+
+# Local History for Visual Studio Code
+.history/
+
+### ####### ###
+### Eclipse ###
 
 .metadata
 bin/
@@ -74,35 +116,8 @@ local.properties
 # Typically, this file would be tracked if it contains build/dependency configurations:
 #.project
 
-### #### ######### ###
-### Java.gitignore ###
-
-# Compiled class file
-*.class
-
-# Log file
-*.log
-
-# BlueJ files
-*.ctxt
-
-# Mobile Tools for Java (J2ME)
-.mtj.tmp/
-
-# Package Files #
-*.jar
-*.war
-*.nar
-*.ear
-*.zip
-*.tar.gz
-*.rar
-
-# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
-hs_err_pid*
-
-### ####### ######### ###
-### Windows.gitignore ###
+### ####### ###
+### Windows ###
 
 # Windows thumbnail cache files
 Thumbs.db
